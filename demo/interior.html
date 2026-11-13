@@ -2,133 +2,279 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
 <title>선과면 인테리어 — 컨셉 작업</title>
+<link rel="preconnect" href="https://images.unsplash.com">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap">
+<link rel="stylesheet" href="base.css">
 <style>
-:root{--bg:#e8e7e3;--ink:#111;--mute:#77756f;--line:#c9c7c0;--pad:clamp(20px,4vw,56px);--e:cubic-bezier(.2,.7,.1,1)}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:"Pretendard Variable",-apple-system,"Apple SD Gothic Neo",sans-serif;font-size:16px;line-height:1.65;word-break:keep-all;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{color:inherit;text-decoration:none}ul,ol{list-style:none}
-.demo{background:var(--ink);color:#aaa;font-size:12.5px;display:flex;justify-content:space-between;padding:8px var(--pad)}
-.demo a{color:#fff}
-nav{display:flex;justify-content:space-between;align-items:center;padding:20px var(--pad);font-size:13px;font-weight:600;letter-spacing:.08em;border-bottom:1px solid var(--ink)}
-nav ul{display:flex;gap:32px}
-nav a:hover{opacity:.5}
-@media(max-width:760px){nav ul li:not(:last-child){display:none}}
-.rv{opacity:0;transform:translateY(30px);transition:opacity 1s var(--e),transform 1s var(--e);transition-delay:var(--d,0s)}
-.rv.in{opacity:1;transform:none}
-svg{display:block;width:100%;height:auto;fill:none;stroke:var(--ink);stroke-width:1;vector-effect:non-scaling-stroke}
-svg *{vector-effect:non-scaling-stroke}
+:root{--bg:#eceae5;--ink:#111;--mute:#77746d;--line:#cfccc4;--pt:#c8552b}
+body{font:400 16px/1.7 "Pretendard Variable",-apple-system,"Apple SD Gothic Neo",sans-serif}
+.x{font-family:"Archivo","Pretendard Variable",sans-serif;font-stretch:118%;font-weight:800;letter-spacing:-.03em;text-transform:uppercase}
+.cap{font:600 12px/1 "Archivo",sans-serif;letter-spacing:.16em;color:var(--mute);text-transform:uppercase}
+section{padding:clamp(88px,11vw,170px) var(--pad)}
+h2{font-size:clamp(30px,4.8vw,76px);font-weight:800;line-height:1.14;letter-spacing:-.05em}
 
-.hero{padding:clamp(28px,4vw,56px) var(--pad) 0}
-.hero h1{font-size:clamp(52px,13.6vw,236px);font-weight:900;line-height:.9;letter-spacing:-.055em;margin-left:-.04em}
-.hero h1 span{display:block}
-.hero h1 .o{color:#b4b2aa}
-.hero .meta{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:clamp(24px,3vw,44px);padding:18px 0;border-top:1px solid var(--ink);font-size:13.5px}
-.hero .meta b{display:block;font-size:11.5px;letter-spacing:.14em;color:var(--mute);font-weight:600;margin-bottom:4px}
-@media(max-width:760px){.hero .meta{grid-template-columns:1fr 1fr}}
-.draw{border-block:1px solid var(--ink);padding:clamp(24px,4vw,56px) var(--pad);overflow:hidden}
-.draw path,.draw line,.draw rect{stroke-dasharray:1;stroke-dashoffset:1;animation:ln 2.6s var(--e) forwards;animation-delay:calc(var(--i,0)*.14s + .3s)}
-@keyframes ln{to{stroke-dashoffset:0}}
+.hd{color:#fff;mix-blend-mode:normal}
+.hd .logo{font:800 17px/1 "Archivo",sans-serif;letter-spacing:.02em;font-stretch:118%}
+.hd .logo small{font:500 13px "Pretendard Variable",sans-serif;margin-left:10px;opacity:.75}
+.hd .r{display:flex;align-items:center;gap:18px}
+.hd .res{background:#fff;color:#111;padding:11px 22px;font-size:14px;font-weight:600;transition:.3s}
+.hd .res:hover{background:var(--pt);color:#fff}
+body.scrolled:not(.menu) .hd{background:rgba(236,234,229,.88);backdrop-filter:blur(14px);color:var(--ink);padding-block:12px}
+body.scrolled:not(.menu) .hd .res{background:#111;color:#fff}
+@media(max-width:560px){.hd .res{display:none}}
+.nav-ov{background:#111;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:120px var(--pad) 56px}
+.nav-ov li{border-top:1px solid #333}
+.nav-ov li a{font:800 clamp(40px,8vw,120px)/1.12 "Archivo",sans-serif;font-stretch:118%;letter-spacing:-.04em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:baseline}
+.nav-ov li a small{font:500 14px "Pretendard Variable",sans-serif;letter-spacing:0;color:#888}
+.nav-ov li a:hover{color:var(--pt)}
 
-section{padding:clamp(72px,10vw,150px) var(--pad)}
-.h{display:grid;grid-template-columns:1fr 2fr;gap:24px;margin-bottom:clamp(32px,5vw,72px);align-items:end}
-.h small{font-size:12px;font-weight:600;letter-spacing:.14em;color:var(--mute)}
-.h h2{font-size:clamp(30px,5vw,76px);font-weight:800;letter-spacing:-.045em;line-height:1.1}
-@media(max-width:760px){.h{grid-template-columns:1fr}}
+.hero{position:relative;height:100svh;min-height:620px;padding:0;color:#fff;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+.hero .bg{position:absolute;inset:-6% 0;transform:translateY(calc(var(--p,.5)*12% - 6%))}
+.hero .bg img{transform:scale(1.16);transition:transform 7s cubic-bezier(.1,.5,.2,1)}
+body.ready .hero .bg img{transform:scale(1.02)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.34),rgba(0,0,0,.05) 35%,rgba(0,0,0,.62))}
+.hero h1{position:relative;z-index:1;padding:0 var(--pad);font-size:clamp(50px,12.6vw,220px);line-height:.88;margin-left:-.03em}
+.hero .meta{position:relative;z-index:1;margin:clamp(22px,3vw,40px) var(--pad) 28px;padding-top:18px;border-top:1px solid rgba(255,255,255,.5);display:grid;grid-template-columns:repeat(4,1fr);gap:20px;font-size:14px}
+.hero .meta b{display:block;font:600 11px "Archivo",sans-serif;letter-spacing:.16em;opacity:.7;margin-bottom:5px}
+@media(max-width:760px){.hero .meta{grid-template-columns:1fr 1fr;margin-bottom:22px}.hero .meta div:nth-child(n+3){display:none}}
 
-.pj{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--ink);border:1px solid var(--ink)}
-.pj a{background:var(--bg);padding:clamp(18px,2.4vw,32px);display:flex;flex-direction:column;gap:20px;transition:background .45s,color .45s}
-.pj a:hover{background:var(--ink);color:#fff}
-.pj a:hover svg{stroke:#fff}
-.pj svg{aspect-ratio:16/10;transition:transform .7s var(--e)}
-.pj a:hover svg{transform:scale(1.03)}
-.pj .c{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
-.pj .c b{font-size:clamp(19px,2vw,28px);font-weight:700;letter-spacing:-.03em}
-.pj .c span{font-size:13px;color:var(--mute);font-variant-numeric:tabular-nums}
-@media(max-width:700px){.pj{grid-template-columns:1fr}}
+.about{display:grid;grid-template-columns:1fr 2fr;gap:clamp(24px,5vw,80px)}
+.about h2{font-size:clamp(26px,3.6vw,56px);font-weight:700;line-height:1.4;letter-spacing:-.045em}
+.stats{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink);margin-top:clamp(40px,6vw,88px)}
+.stats div{padding:26px 24px 0 0;border-right:1px solid var(--line)}
+.stats div+div{padding-left:24px}.stats div:last-child{border:0}
+.stats b{display:block;font:800 clamp(52px,8.4vw,136px)/1 "Archivo",sans-serif;font-stretch:118%;letter-spacing:-.05em}
+.stats b sup{font-size:.3em;vertical-align:top;margin-left:6px;letter-spacing:0}
+.stats div>span{color:var(--mute);font-size:14.5px}
+@media(max-width:760px){.about{grid-template-columns:1fr}.stats{grid-template-columns:1fr}.stats div{border-right:0;border-bottom:1px solid var(--line);padding:22px 0!important}}
 
-.how{background:var(--ink);color:#fff}
-.how .h small{color:#888}
-.how ol{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #444}
-.how li{padding:28px 24px 8px 0;border-right:1px solid #444}
-.how li+li{padding-left:24px}
-.how li:last-child{border:0}
-.how i{font-style:normal;font-size:12px;letter-spacing:.14em;color:#888}
-.how b{display:block;font-size:clamp(22px,2.4vw,34px);letter-spacing:-.035em;margin:44px 0 10px}
-.how p{color:#aaa;font-size:15px}
-@media(max-width:860px){.how ol{grid-template-columns:1fr 1fr}.how li{border-right:0;border-bottom:1px solid #444;padding:24px 0!important}}
+.pj{padding-top:0}
+.pj .top{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(28px,4vw,56px)}
+.tabs{display:flex;gap:8px}
+.tabs button{border:1px solid var(--ink);padding:9px 20px;font-size:14px;font-weight:600;transition:.25s}
+.tabs button[aria-pressed=true],.tabs button:hover{background:var(--ink);color:var(--bg)}
+.pj li{border-top:1px solid var(--ink)}
+.pj li:last-child{border-bottom:1px solid var(--ink)}
+.pj li[hidden]{display:none}
+.pj li a{display:grid;grid-template-columns:4ch 1fr auto auto;gap:clamp(16px,3vw,48px);align-items:center;padding:clamp(18px,2.4vw,34px) 0;transition:padding .45s var(--e),color .3s}
+.pj li a:hover{padding-inline:18px;color:var(--pt)}
+.pj .n{font:600 13px "Archivo",sans-serif;color:var(--mute)}
+.pj .t{font-size:clamp(26px,4.6vw,72px);font-weight:800;letter-spacing:-.05em;line-height:1.1}
+.pj .k,.pj .y{font-size:14px;color:var(--mute);white-space:nowrap}
+.pj .th{display:none}
+.peek{position:fixed;z-index:30;left:0;top:0;width:min(30vw,420px);aspect-ratio:4/3;pointer-events:none;overflow:hidden;opacity:0;transform:translate(var(--x,0),var(--y,0)) scale(.86);transition:opacity .35s}
+.peek.on{opacity:1}
+.peek img{position:absolute;inset:0;opacity:0;transition:opacity .35s}
+.peek img.on{opacity:1}
+@media(max-width:860px),(hover:none){
+  .peek{display:none}
+  .pj li a{grid-template-columns:1fr auto;gap:6px 16px;padding:22px 0}
+  .pj .n{display:none}.pj .th{display:block;grid-column:1/-1;aspect-ratio:16/10;margin-bottom:12px}.pj .y{display:none}
+}
 
-.cta{text-align:center}
-.cta a{display:inline-block;font-size:clamp(44px,10vw,170px);font-weight:900;letter-spacing:-.055em;line-height:1;border-bottom:.06em solid var(--ink);transition:letter-spacing .6s var(--e)}
-.cta a:hover{letter-spacing:-.02em}
-.cta p{margin-top:28px;color:var(--mute)}
-footer{padding:24px var(--pad);border-top:1px solid var(--ink);font-size:12.5px;color:var(--mute);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.rv{opacity:1;transform:none}.draw *{stroke-dashoffset:0}}
+.how{background:#111;color:#fff;padding:0}
+.how .head{padding:0 var(--pad) clamp(24px,3vw,48px);display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
+.how .head p{color:#999;max-width:24em;font-size:15px}
+.how .track{padding:0 var(--pad);gap:1px}
+.how .card{width:min(82vw,520px);flex:none;border:1px solid #333;margin-right:-1px;display:flex;flex-direction:column}
+.how .card .im{aspect-ratio:16/10;overflow:hidden;filter:grayscale(.2)}
+.how .card div:last-child{padding:clamp(22px,2.4vw,34px)}
+.how .card i{font:600 12px "Archivo",sans-serif;letter-spacing:.16em;color:var(--pt);font-style:normal}
+.how .card h3{font-size:clamp(24px,2.6vw,36px);font-weight:800;letter-spacing:-.04em;margin:14px 0 10px}
+.how .card p{color:#aaa;font-size:15px}
+.how .prog{margin:clamp(26px,3vw,44px) var(--pad) 0;font:600 12px "Archivo",sans-serif;letter-spacing:.16em;color:#777;display:flex;align-items:center;gap:16px}
+.how .prog::before{content:"";flex:1;height:2px;background:linear-gradient(90deg,var(--pt) calc(var(--p,0)*100%),#333 0)}
+@media(max-width:860px){.how{padding:88px 0}.how .head{display:block}.how .head p{margin-top:16px}.how .prog{display:none}}
+
+.quote{position:relative;height:110vh;padding:0;overflow:hidden;color:#fff;display:flex;align-items:flex-end}
+.quote .bg{position:absolute;inset:-14% 0;transform:translateY(calc((var(--p,.5) - .5)*-18%))}
+.quote::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 30%,rgba(0,0,0,.7))}
+.quote blockquote{position:relative;z-index:1;padding:0 var(--pad) clamp(48px,7vw,110px);font-size:clamp(28px,5vw,80px);font-weight:800;letter-spacing:-.05em;line-height:1.2;max-width:14em}
+.quote cite{display:block;margin-top:22px;font:500 14px "Pretendard Variable",sans-serif;letter-spacing:0;opacity:.8}
+@media(max-width:760px){.quote{height:80vh}}
+
+.est{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(40px,7vw,120px)}
+.est p.lead{color:#555;margin-top:22px;max-width:26em}
+.est form{position:relative;border:1px solid var(--ink);padding:clamp(22px,3vw,44px);background:#f4f2ee}
+.est fieldset{border:0;margin-bottom:28px}
+.est legend,.est label>span{display:block;font:600 12px "Archivo","Pretendard Variable",sans-serif;letter-spacing:.12em;color:var(--mute);margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{position:relative}
+.chips input{position:absolute;opacity:0}
+.chips span{display:block;border:1px solid var(--ink);padding:10px 20px;font-size:14.5px;font-weight:600;cursor:pointer;transition:.2s;margin:0;letter-spacing:0;color:var(--ink);font-family:inherit}
+.chips input:checked+span{background:var(--ink);color:#fff}
+.chips input:focus-visible+span{outline:2px solid var(--pt);outline-offset:2px}
+.est input[type=range]{width:100%;accent-color:var(--ink)}
+.est output{float:right;font:800 22px "Archivo",sans-serif;color:var(--ink);letter-spacing:-.02em}
+.sum{border-top:1px solid var(--ink);padding-top:22px;margin-bottom:26px}
+.sum b{display:block;white-space:nowrap;font:800 clamp(26px,3.4vw,50px)/1.1 "Archivo",sans-serif;font-stretch:112%;letter-spacing:-.045em}
+.sum small{color:var(--mute);font-size:13px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.est input[type=text],.est input[type=tel]{width:100%;padding:14px;border:1px solid var(--line);background:#fff;font-size:16px}
+.est input:focus{outline:0;border-color:var(--ink)}
+.est button{width:100%;padding:18px;background:var(--ink);color:#fff;font-weight:700;font-size:16px;transition:.3s}
+.est button:hover{background:var(--pt)}
+.est .ok{position:absolute;inset:0;display:grid;place-content:center;text-align:center;background:#111;color:#fff;padding:32px;opacity:0;visibility:hidden;transition:.5s}
+.est .ok b{display:block;font-size:34px;letter-spacing:-.04em;margin-bottom:10px}
+.est form.sent .ok{opacity:1;visibility:visible}
+@media(max-width:860px){.est{grid-template-columns:1fr}}
+@media(max-width:480px){.row{grid-template-columns:1fr}}
+
+footer{background:#111;color:#888;padding:clamp(56px,8vw,110px) var(--pad) 36px;font-size:13.5px}
+footer .big{display:block;color:#fff;font-size:clamp(46px,11.5vw,200px);line-height:.92;margin-bottom:clamp(36px,5vw,72px);transition:color .3s}
+footer .big:hover{color:var(--pt)}
+footer .g{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;border-top:1px solid #333;padding-top:22px}
+footer small{display:block;margin-top:22px;font-size:12px;color:#666}
+
+.quick a{background:#111;color:#fff}
+.quick a.k{background:var(--pt)}
+.mbar{background:#111;color:#fff}
+.mbar a+a{border-left:1px solid #333}
+.mbar a:last-child{background:var(--pt)}
 </style>
 </head>
 <body>
-<div class="demo"><span>컨셉 작업 · 실제 업체가 아닌 가상의 브랜드입니다</span><a href="../#works">← 돌아가기</a></div>
-<nav>
-  <a href="#">선과면 — SEON &amp; MYEON</a>
-  <ul><li><a href="#pj">PROJECT</a></li><li><a href="#how">PROCESS</a></li><li><a href="#cta">견적 문의</a></li></ul>
+<div class="loader"><span class="x" style="font-size:22px">SEON &amp; MYEON</span></div>
+<div class="demo"><span>컨셉 작업 · 가상의 업체</span><a href="../#works">← 돌아가기</a></div>
+
+<header class="hd">
+  <a class="logo" href="#top">SEON &amp; MYEON<small>선과면</small></a>
+  <div class="r"><a class="res" href="#est">견적 문의</a><button class="burger" data-menu aria-label="메뉴 열기"><i></i><i></i></button></div>
+</header>
+<nav class="nav-ov" aria-label="전체 메뉴">
+  <ul>
+    <li><a style="--i:0" href="#about">About<small>소개</small></a></li>
+    <li><a style="--i:1" href="#pj">Project<small>시공 사례</small></a></li>
+    <li><a style="--i:2" href="#how">Process<small>진행 과정</small></a></li>
+    <li><a style="--i:3" href="#est">Estimate<small>견적 문의</small></a></li>
+  </ul>
 </nav>
 
-<header class="hero">
-  <h1><span class="rv">SPACE,</span><span class="rv o" style="--d:.1s">DRAWN</span><span class="rv" style="--d:.2s">RIGHT.</span></h1>
-  <div class="meta rv" style="--d:.3s">
+<main id="top">
+<section class="hero" data-p>
+  <div class="bg"><img src="https://images.unsplash.com/photo-1705321963943-de94bb3f0dd3?auto=format&fit=crop&w=2000&q=78" alt=""></div>
+  <h1 class="x"><span class="ln"><span class="up" style="--i:0">Space,</span></span><span class="ln"><span class="up" style="--i:1">Drawn</span></span><span class="ln"><span class="up" style="--i:2">Right.</span></span></h1>
+  <div class="meta">
     <div><b>WHAT</b>주거 · 상업 공간 설계와 시공</div>
     <div><b>WHERE</b>서울 · 경기</div>
     <div><b>HOW</b>설계한 사람이 현장까지</div>
     <div><b>SINCE</b>2016</div>
   </div>
-</header>
+</section>
 
-<div class="draw" aria-hidden="true">
-  <svg viewBox="0 0 1200 300">
-    <line pathLength="1" style="--i:0" x1="0" y1="280" x2="1200" y2="280"/>
-    <rect pathLength="1" style="--i:1" x="60" y="60" width="330" height="220"/>
-    <rect pathLength="1" style="--i:2" x="100" y="110" width="110" height="170"/>
-    <rect pathLength="1" style="--i:3" x="250" y="110" width="100" height="90"/>
-    <path pathLength="1" style="--i:4" d="M390 120H700V280M390 120V280"/>
-    <path pathLength="1" style="--i:5" d="M440 280V170H650V280M545 170V280"/>
-    <path pathLength="1" style="--i:6" d="M700 30H1140V280M700 30V120"/>
-    <path pathLength="1" style="--i:7" d="M760 280V90H1080V280M760 185H1080M920 90V280"/>
-    <path pathLength="1" style="--i:8" d="M30 60H420M30 50V70M420 50V70M1170 30V280M1160 30H1180M1160 280H1180"/>
-  </svg>
-</div>
-
-<section id="pj">
-  <div class="h"><small class="rv">PROJECT — 04</small><h2 class="rv">도면에서 시작해<br>생활로 끝납니다.</h2></div>
-  <div class="pj">
-    <a href="#pj" class="rv"><svg viewBox="0 0 320 200"><rect x="10" y="10" width="300" height="180"/><path d="M10 110H150V190M150 60V110M150 60H310M220 60V10M220 130H310M220 130V190"/><path d="M150 150a40 40 0 0 1 40 40" stroke-dasharray="3 3"/></svg><div class="c"><b>서초 34평 아파트</b><span>주거 · 112㎡</span></div></a>
-    <a href="#pj" class="rv" style="--d:.08s"><svg viewBox="0 0 320 200"><rect x="10" y="10" width="300" height="180"/><path d="M10 70H210V190M210 70V10M60 70V10M110 70V10M160 70V10"/><circle cx="260" cy="60" r="22"/><circle cx="260" cy="140" r="22"/></svg><div class="c"><b>성수 카페</b><span>상업 · 86㎡</span></div></a>
-    <a href="#pj" class="rv"><svg viewBox="0 0 320 200"><rect x="10" y="10" width="300" height="180"/><path d="M110 10V190M210 10V190M10 100H110M210 100H310M110 60H210M110 140H210"/></svg><div class="c"><b>판교 사무실</b><span>업무 · 198㎡</span></div></a>
-    <a href="#pj" class="rv" style="--d:.08s"><svg viewBox="0 0 320 200"><path d="M10 190V70L160 10L310 70V190Z"/><path d="M10 70H310M110 190V120H210V190M60 100H100M220 100H260"/></svg><div class="c"><b>양평 단독주택</b><span>주거 · 165㎡</span></div></a>
+<section class="about" id="about">
+  <p class="cap rv">About</p>
+  <h2 data-words>선과면은 도면을 그린 사람이 현장까지 책임지는 인테리어 스튜디오입니다. 견적서에 없는 비용은 청구하지 않고, 공정마다 사진으로 진행 상황을 알려 드립니다.</h2>
+  <div class="stats">
+    <div class="rv"><b><span data-count="128">0</span></b><span>완공한 공간</span></div>
+    <div class="rv" style="--d:.1s"><b><span data-count="9">0</span><sup>년</sup></b><span>설계와 시공을 함께 해 온 시간</span></div>
+    <div class="rv" style="--d:.2s"><b><span data-count="2">0</span><sup>년</sup></b><span>무상 하자 보수 기간</span></div>
   </div>
 </section>
 
-<section class="how" id="how">
-  <div class="h"><small class="rv">PROCESS</small><h2 class="rv">견적서에 없는 비용은<br>청구하지 않습니다.</h2></div>
+<section class="pj" id="pj">
+  <div class="top"><h2 class="rv">시공 사례</h2>
+    <div class="tabs rv" role="group" aria-label="공간 유형"><button aria-pressed="true" data-f="all">전체</button><button aria-pressed="false" data-f="home">주거</button><button aria-pressed="false" data-f="shop">상업</button></div>
+  </div>
   <ol>
-    <li class="rv"><i>01</i><b>실측 상담</b><p>현장을 직접 재고 생활 방식을 듣습니다.</p></li>
-    <li class="rv" style="--d:.08s"><i>02</i><b>설계 · 견적</b><p>도면과 항목별 견적서를 함께 드립니다.</p></li>
-    <li class="rv" style="--d:.16s"><i>03</i><b>시공</b><p>공정마다 사진으로 진행 상황을 알립니다.</p></li>
-    <li class="rv" style="--d:.24s"><i>04</i><b>입주 후 점검</b><p>입주 뒤 다시 방문해 손볼 곳을 확인합니다.</p></li>
+    <li data-k="home"><a href="#pj" data-img="1664711942326-2c3351e215e6"><span class="n">01</span><span class="t">서초 34평 아파트</span><span class="k">주거 · 112㎡</span><span class="y">2026</span></a></li>
+    <li data-k="shop"><a href="#pj" data-img="1565650839149-2c48a094196c"><span class="n">02</span><span class="t">성수 카페</span><span class="k">상업 · 86㎡</span><span class="y">2026</span></a></li>
+    <li data-k="home"><a href="#pj" data-img="1772567732969-c1506edf80a0"><span class="n">03</span><span class="t">분당 주방 리모델링</span><span class="k">주거 · 26㎡</span><span class="y">2025</span></a></li>
+    <li data-k="shop"><a href="#pj" data-img="1758448500688-3ababa93fd67"><span class="n">04</span><span class="t">판교 사무실</span><span class="k">상업 · 198㎡</span><span class="y">2025</span></a></li>
+    <li data-k="home"><a href="#pj" data-img="1748063578185-3d68121b11ff"><span class="n">05</span><span class="t">양평 단독주택</span><span class="k">주거 · 165㎡</span><span class="y">2025</span></a></li>
+    <li data-k="home"><a href="#pj" data-img="1745429523617-0d837856ca35"><span class="n">06</span><span class="t">한남 빌라</span><span class="k">주거 · 142㎡</span><span class="y">2024</span></a></li>
   </ol>
 </section>
+<div class="peek" aria-hidden="true"></div>
 
-<section class="cta" id="cta">
-  <a class="rv" href="#cta">견적 문의 ↗</a>
-  <p class="rv" style="--d:.1s">02 · 000 · 0000 &nbsp;/&nbsp; 서울시 ○○구 ○○로 00</p>
+<section class="how hpin" id="how" data-p="pin">
+  <div class="stick">
+    <div class="head"><h2 class="rv">진행 과정</h2><p class="rv">상담부터 입주 후 점검까지 네 단계입니다. 단계마다 확인받고 다음으로 넘어갑니다.</p></div>
+    <div class="track">
+      <div class="card"><div class="im"><img loading="lazy" src="https://images.unsplash.com/photo-1730342754571-05cefe80919d?auto=format&fit=crop&w=1000&q=72" alt=""></div><div><i>STEP 01</i><h3>실측 상담</h3><p>현장을 직접 재고, 지금 불편한 점과 원하는 생활 방식을 듣습니다.</p></div></div>
+      <div class="card"><div class="im"><img loading="lazy" src="https://images.unsplash.com/photo-1664638413509-6aa486866f9a?auto=format&fit=crop&w=1000&q=72" alt=""></div><div><i>STEP 02</i><h3>설계 · 견적</h3><p>도면과 자재 샘플, 항목별 견적서를 함께 드립니다. 금액이 바뀌는 조건도 미리 적어 둡니다.</p></div></div>
+      <div class="card"><div class="im"><img loading="lazy" src="https://images.unsplash.com/photo-1771372125074-5c7c4332095f?auto=format&fit=crop&w=1000&q=72" alt=""></div><div><i>STEP 03</i><h3>시공</h3><p>공정이 끝날 때마다 사진으로 알려 드립니다. 현장 책임자는 설계한 사람입니다.</p></div></div>
+      <div class="card"><div class="im"><img loading="lazy" src="https://images.unsplash.com/photo-1664711942326-2c3351e215e6?auto=format&fit=crop&w=1000&q=72" alt=""></div><div><i>STEP 04</i><h3>입주 후 점검</h3><p>입주 한 달 뒤 다시 방문해 손볼 곳을 확인합니다.</p></div></div>
+    </div>
+    <div class="prog">SCROLL</div>
+  </div>
 </section>
-<footer><span>선과면 인테리어 · 컨셉 작업용 가상 정보</span><span>Concept design</span></footer>
+
+<section class="quote" data-p>
+  <div class="bg"><img loading="lazy" src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&w=2000&q=75" alt=""></div>
+  <blockquote class="rv">도면에서 시작해 생활로 끝납니다.<cite>선과면의 작업 원칙</cite></blockquote>
+</section>
+
+<section class="est" id="est">
+  <div>
+    <p class="cap rv">Estimate</p>
+    <h2 class="rv" style="margin-top:18px">예상 비용을<br>먼저 확인하세요.</h2>
+    <p class="lead rv">공간 유형과 평수, 마감 수준을 고르면 대략의 범위를 바로 보여 드립니다. 정확한 금액은 실측 후 항목별 견적서로 안내합니다.</p>
+  </div>
+  <form class="rv" data-demo id="calc">
+    <fieldset><legend>공간 유형</legend><div class="chips">
+      <label><input type="radio" name="type" value="1" checked><span>주거</span></label>
+      <label><input type="radio" name="type" value="0.9"><span>상업</span></label>
+    </div></fieldset>
+    <label style="display:block;margin-bottom:28px"><span>평수 <output id="py">32평</output></span><input type="range" name="size" min="10" max="80" value="32" aria-label="평수"></label>
+    <fieldset><legend>마감 수준</legend><div class="chips">
+      <label><input type="radio" name="grade" value="120,150"><span>기본</span></label>
+      <label><input type="radio" name="grade" value="180,230" checked><span>중급</span></label>
+      <label><input type="radio" name="grade" value="280,350"><span>고급</span></label>
+    </div></fieldset>
+    <div class="sum"><b id="sum" aria-live="polite"></b><small>예시 계산입니다. 철거 범위와 자재에 따라 달라집니다.</small></div>
+    <div class="row"><input type="text" placeholder="이름" autocomplete="name" required aria-label="이름"><input type="tel" placeholder="연락처" autocomplete="tel" required aria-label="연락처"></div>
+    <button>실측 상담 신청</button>
+    <div class="ok"><div><b>신청 화면 예시입니다</b>데모 페이지라 실제로 접수되지는 않습니다.</div></div>
+  </form>
+</section>
+</main>
+
+<footer>
+  <a class="big x" href="#est">Let's build ↗</a>
+  <div class="g"><span>선과면 인테리어 · 대표자 ○○○ · 사업자등록번호 000-00-00000 · 서울시 ○○구 ○○로 00</span><span>02-000-0000</span></div>
+  <small>컨셉 작업용 가상 정보입니다. 사진 출처 Unsplash. 사진 속 공간은 이 페이지의 내용과 관계가 없습니다.</small>
+</footer>
+
+<div class="quick"><a class="k" href="#est">견적<br>문의</a><a href="#top" aria-label="맨 위로">↑</a></div>
+<div class="mbar"><a href="tel:020000000">전화</a><a href="#pj">시공 사례</a><a href="#est">견적 문의</a></div>
+<script src="fx.js"></script>
 <script>
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
-document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+const U = (id, w) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=72`;
+const rows = [...document.querySelectorAll('.pj li')], peek = document.querySelector('.peek');
+
+// 시공 사례: 마우스를 따라다니는 미리보기 (터치 기기에서는 줄마다 사진을 넣는다)
+rows.forEach((li, i) => {
+  const a = li.firstElementChild, id = a.dataset.img;
+  a.insertAdjacentHTML('afterbegin', `<span class="th"><img loading="lazy" src="${U(id, 900)}" alt=""></span>`);
+  peek.insertAdjacentHTML('beforeend', `<img loading="lazy" src="${U(id, 800)}" alt="">`);
+  a.addEventListener('mouseenter', () => { peek.classList.add('on'); [...peek.children].forEach((im, j) => im.classList.toggle('on', i === j)); });
+  a.addEventListener('mouseleave', () => peek.classList.remove('on'));
+});
+addEventListener('mousemove', e => {
+  peek.style.setProperty('--x', Math.min(e.clientX + 28, innerWidth - peek.offsetWidth - 12) + 'px');
+  peek.style.setProperty('--y', (e.clientY - peek.offsetHeight / 2) + 'px');
+});
+
+// 유형 필터
+document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('.tabs button').forEach(x => x.setAttribute('aria-pressed', x === b));
+  rows.forEach(li => li.hidden = b.dataset.f !== 'all' && li.dataset.k !== b.dataset.f);
+}));
+
+// 예상 비용: 평수 × 평당 단가(만 원) × 유형 계수
+const f = document.getElementById('calc');
+const won = v => v >= 10000 ? (v / 10000).toFixed(1).replace('.0', '') + '억' : Math.round(v / 100) * 100 + '만';
+function calc() {
+  const d = new FormData(f), size = +d.get('size'), k = +d.get('type'), [lo, hi] = d.get('grade').split(',').map(Number);
+  document.getElementById('py').textContent = size + '평';
+  document.getElementById('sum').textContent = `${won(size * lo * k)} ~ ${won(size * hi * k)} 원`;
+}
+f.addEventListener('input', calc); calc();
 </script>
 </body>
 </html>

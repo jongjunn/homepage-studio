@@ -1,0 +1,72 @@
+/* 데모 3종 공통: 리셋, 로더, 등장 효과, 전체 메뉴, 떠 있는 상담 버튼 */
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+:root{--e:cubic-bezier(.2,.7,.1,1);--pad:clamp(20px,4.5vw,72px)}
+body{background:var(--bg);color:var(--ink);word-break:keep-all;-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{color:inherit;text-decoration:none}ul,ol{list-style:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+
+.demo{position:fixed;left:16px;bottom:16px;z-index:90;display:flex;gap:12px;padding:8px 14px;border-radius:99px;background:rgba(17,17,17,.88);color:#bbb;font:12px/1.4 "Pretendard Variable",sans-serif;backdrop-filter:blur(8px)}
+.demo a{color:#fff;white-space:nowrap}
+@media(max-width:760px){.demo{bottom:76px;left:10px;font-size:11px}}
+
+.loader{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:var(--bg);transition:opacity .9s .1s,visibility 0s 1s}
+.loader>*{animation:pulse 1.4s ease-in-out infinite alternate}
+@keyframes pulse{from{opacity:.25}to{opacity:1}}
+body.ready .loader{opacity:0;visibility:hidden}
+
+.rv{opacity:0;transform:translateY(34px);transition:opacity 1.1s var(--e),transform 1.1s var(--e);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+/* 가림은 img에 건다: 컨테이너를 통째로 가리면 화면 진입 감지가 안 된다 */
+.ri{overflow:hidden}
+.ri img{clip-path:inset(0 0 100% 0);transform:scale(1.25);transition:clip-path 1.4s var(--e),transform 1.9s var(--e);transition-delay:var(--d,0s)}
+.ri.in img{clip-path:inset(0);transform:none}
+.ln{display:block;overflow:hidden}
+.up{display:block;transform:translateY(115%);transition:transform 1.3s var(--e);transition-delay:calc(var(--i,0)*.12s + .25s)}
+body.ready .up{transform:none}
+[data-words] .w{transition:opacity .5s}
+
+/* header */
+.hd{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:22px var(--pad);transition:transform .6s var(--e),background .4s,color .4s,padding .4s}
+body.hide-h .hd{transform:translateY(-100%)}
+.burger{width:44px;height:44px;display:grid;place-content:center;gap:7px}
+.burger i{display:block;width:26px;height:1.5px;background:currentColor;transition:transform .5s var(--e)}
+body.menu .burger i:first-child{transform:translateY(4.25px) rotate(45deg)}
+body.menu .burger i:last-child{transform:translateY(-4.25px) rotate(-45deg)}
+.nav-ov{position:fixed;inset:0;z-index:40;clip-path:inset(0 0 100% 0);transition:clip-path .9s var(--e);overflow:auto}
+body.menu .nav-ov{clip-path:inset(0)}
+body.menu{overflow:hidden}
+.nav-ov li{overflow:hidden}
+.nav-ov li a{display:block;transform:translateY(110%);transition:transform .9s var(--e);transition-delay:calc(var(--i)*.06s + .25s)}
+body.menu .nav-ov li a{transform:none}
+
+/* 가로 스크롤 고정 구간 */
+.hpin{height:340vh}
+.hpin .stick{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.hpin .track{display:flex;width:max-content;transform:translateX(calc(var(--p,0)*(100vw - 100%)));will-change:transform}
+@media(max-width:860px){
+  .hpin{height:auto}
+  .hpin .stick{position:static;height:auto;display:block}
+  .hpin .track{transform:none;width:auto;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .hpin .track::-webkit-scrollbar{display:none}
+  .hpin .track>*{scroll-snap-align:start}
+}
+
+/* 떠 있는 상담 버튼 */
+.quick{position:fixed;right:22px;bottom:22px;z-index:45;display:flex;flex-direction:column;gap:10px}
+.quick a{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font:600 11px/1.2 "Pretendard Variable",sans-serif;text-align:center;box-shadow:0 6px 24px rgba(0,0,0,.16);transition:transform .4s var(--e)}
+.quick a:hover{transform:translateY(-4px)}
+.mbar{display:none}
+@media(max-width:760px){
+  .quick{display:none}
+  .mbar{position:fixed;inset:auto 0 0 0;z-index:45;display:grid;grid-template-columns:1fr 1fr 1.4fr;font:600 14px/1 "Pretendard Variable",sans-serif;padding-bottom:env(safe-area-inset-bottom)}
+  .mbar a{padding:19px 0;text-align:center}
+  body{padding-bottom:56px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv,.up{opacity:1;transform:none}.ri img{transform:none;clip-path:none}
+}

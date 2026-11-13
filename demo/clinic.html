@@ -2,120 +2,293 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
 <title>결 피부과의원 — 컨셉 작업</title>
+<link rel="preconnect" href="https://images.unsplash.com">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+KR:wght@300;400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+KR:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="base.css">
 <style>
-:root{--bg:#f3eee7;--ink:#2a2420;--mute:#857a70;--line:#d9cfc3;--clay:#a5673f;--pad:clamp(20px,5vw,72px);--e:cubic-bezier(.2,.7,.1,1)}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:"Pretendard Variable",-apple-system,"Apple SD Gothic Neo",sans-serif;font-size:16px;line-height:1.75;word-break:keep-all;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{color:inherit;text-decoration:none}ul,ol{list-style:none}
-.serif{font-family:"Noto Serif KR",serif;font-weight:300}
-.en{font-family:"Cormorant Garamond",serif;font-style:italic}
-.demo{background:var(--ink);color:#d8cfc5;font-size:12.5px;display:flex;justify-content:space-between;padding:8px var(--pad)}
-.demo a{color:#fff}
-nav{display:flex;justify-content:space-between;align-items:center;padding:26px var(--pad);font-size:14.5px}
-nav .logo{font-family:"Noto Serif KR",serif;font-size:21px;letter-spacing:.02em}
-nav ul{display:flex;gap:36px}
-nav .res{border:1px solid var(--ink);padding:9px 20px;border-radius:99px;transition:.3s}
-nav .res:hover{background:var(--ink);color:var(--bg)}
-@media(max-width:760px){nav ul li:not(:last-child){display:none}}
-section{padding:clamp(72px,11vw,160px) var(--pad)}
-.rv{opacity:0;transform:translateY(28px);transition:opacity 1.1s var(--e),transform 1.1s var(--e);transition-delay:var(--d,0s)}
-.rv.in{opacity:1;transform:none}
+:root{--bg:#f5f1eb;--ink:#28221e;--mute:#8a7f75;--line:#ddd3c7;--clay:#9c6240;--deep:#221c18}
+body{font:400 16px/1.8 "Pretendard Variable",-apple-system,"Apple SD Gothic Neo",sans-serif}
+.en{font-family:"Cormorant Garamond",serif}
+.kr{font-family:"Noto Serif KR",serif;font-weight:300}
+.eyebrow{font:italic 400 clamp(18px,1.5vw,22px)/1 "Cormorant Garamond",serif;color:var(--clay);margin-bottom:26px}
+section{padding:clamp(88px,12vw,190px) var(--pad)}
+.more{display:inline-flex;gap:14px;align-items:center;border-bottom:1px solid currentColor;padding-bottom:5px;font-size:15px}
+.more i{font-style:normal;transition:transform .4s var(--e)}.more:hover i{transform:translateX(6px)}
 
-.hero{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(32px,6vw,96px);align-items:end;padding-top:clamp(32px,5vw,72px);padding-bottom:clamp(56px,8vw,112px)}
-.hero .en{font-size:clamp(18px,1.8vw,24px);color:var(--clay);margin-bottom:22px}
-.hero h1{font-family:"Noto Serif KR",serif;font-weight:300;font-size:clamp(40px,6.6vw,104px);line-height:1.24;letter-spacing:-.045em}
-.hero p{max-width:27em;color:#5b5048;margin:34px 0 40px}
-.go{display:inline-flex;gap:14px;align-items:center;border-bottom:1px solid var(--ink);padding-bottom:6px;font-weight:500}
-.go i{font-style:normal;transition:transform .4s var(--e)}.go:hover i{transform:translateX(6px)}
-.arch{aspect-ratio:4/5;border-radius:999px 999px 0 0;position:relative;overflow:hidden;
-  background:radial-gradient(120% 80% at 30% 18%,#f6e7d6 0%,transparent 55%),radial-gradient(90% 70% at 78% 70%,#b98562 0%,transparent 60%),linear-gradient(170deg,#e3c9b0,#c79d7c 55%,#8f6144)}
-.arch::before{content:"";position:absolute;inset:14% 22% -10% 22%;border-radius:999px 999px 0 0;border:1px solid rgba(255,255,255,.55)}
-.arch::after{content:"";position:absolute;inset:30% 34% -10% 34%;border-radius:999px 999px 0 0;background:rgba(255,255,255,.16)}
-.arch span{position:absolute;left:0;right:0;bottom:26px;text-align:center;color:#fff;font-size:15px;letter-spacing:.14em}
-@media(max-width:860px){.hero{grid-template-columns:1fr}.arch{max-width:420px}}
+/* header */
+.hd{color:#fff}
+.hd .logo{font:400 23px/1 "Cormorant Garamond",serif;letter-spacing:.34em}
+.hd .r{display:flex;align-items:center;gap:18px}
+.hd .res{border:1px solid currentColor;border-radius:99px;padding:10px 22px;font-size:14px;transition:.3s}
+.hd .res:hover{background:#fff;color:var(--ink);border-color:#fff}
+body.scrolled:not(.menu) .hd{background:rgba(245,241,235,.86);backdrop-filter:blur(14px);color:var(--ink);padding-block:12px}
+body.scrolled:not(.menu) .hd .res:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+@media(max-width:560px){.hd .res{display:none}}
+.nav-ov{background:var(--deep);color:#efe7dc;display:grid;grid-template-columns:1.2fr 1fr;align-items:end;padding:120px var(--pad) 56px;gap:48px}
+.nav-ov li a{font:300 clamp(36px,5.6vw,84px)/1.25 "Cormorant Garamond",serif}
+.nav-ov li a small{font:300 15px "Pretendard Variable",sans-serif;color:#9b8f83;margin-left:18px;letter-spacing:0}
+.nav-ov li a:hover{color:#d0a589;font-style:italic}
+.nav-ov .side{color:#9b8f83;font-size:14.5px}
+.nav-ov .side b{display:block;font:400 34px/1.3 "Cormorant Garamond",serif;color:#efe7dc;margin-bottom:12px}
+@media(max-width:760px){.nav-ov{grid-template-columns:1fr;align-items:start}}
 
-.say{text-align:center;border-block:1px solid var(--line)}
-.say blockquote{font-family:"Noto Serif KR",serif;font-weight:300;font-size:clamp(24px,3.4vw,50px);line-height:1.6;letter-spacing:-.035em;max-width:20em;margin:0 auto}
-.say em{font-style:normal;color:var(--clay)}
-.say cite{display:block;margin-top:36px;font-style:normal;font-size:14px;color:var(--mute)}
+/* hero */
+.hero{position:relative;height:100svh;min-height:600px;padding:0;color:#fff;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+.hero .bg{position:absolute;inset:-6% 0;transform:translateY(calc(var(--p,.5)*12% - 6%))}
+.hero .bg img{transform:scale(1.18);transition:transform 7s cubic-bezier(.1,.5,.2,1);object-position:50% 30%}
+body.ready .hero .bg img{transform:scale(1.02)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,14,10,.36) 0%,rgba(20,14,10,0) 30%,rgba(20,14,10,.12) 55%,rgba(20,14,10,.66) 100%)}
+.hero .txt{position:relative;z-index:1;padding:0 var(--pad) clamp(84px,9vw,128px)}
+.hero .k{font:300 clamp(15px,1.4vw,19px)/1.6 "Noto Serif KR",serif;letter-spacing:.04em;margin-bottom:18px;overflow:hidden}
+.hero h1{font:300 clamp(54px,9.6vw,168px)/1 "Cormorant Garamond",serif;letter-spacing:-.02em}
+.hero h1 em{font-style:italic}
+.hero .foot{position:absolute;z-index:1;left:var(--pad);right:var(--pad);bottom:26px;display:flex;justify-content:flex-end;gap:40px;font-size:12.5px;letter-spacing:.14em;opacity:.85;border-top:1px solid rgba(255,255,255,.35);padding:16px 76px 0 0}
+.hero .sc::after{content:"";display:inline-block;width:44px;height:1px;background:#fff;margin-left:12px;vertical-align:middle;animation:sc 2s var(--e) infinite;transform-origin:left}
+@keyframes sc{0%{transform:scaleX(0)}60%{transform:scaleX(1)}100%{transform:scaleX(1);opacity:0}}
 
-.head{display:flex;justify-content:space-between;align-items:baseline;gap:24px;margin-bottom:clamp(32px,5vw,72px)}
-.head h2{font-family:"Noto Serif KR",serif;font-weight:300;font-size:clamp(30px,4.4vw,64px);letter-spacing:-.04em;line-height:1.3}
-.head .en{font-size:20px;color:var(--mute)}
-.care li{display:grid;grid-template-columns:4ch 1fr 1.3fr 3ch;gap:24px;align-items:baseline;padding:30px 0;border-top:1px solid var(--line);transition:padding .5s var(--e)}
-.care li:last-child{border-bottom:1px solid var(--line)}
-.care li:hover{padding-left:18px}
-.care .n{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--clay);font-size:20px}
-.care .t{font-family:"Noto Serif KR",serif;font-size:clamp(22px,2.6vw,36px);letter-spacing:-.035em}
-.care .d{color:var(--mute);font-size:15px}
-.care .a{opacity:0;transition:.4s}.care li:hover .a{opacity:1}
-@media(max-width:760px){.care li{grid-template-columns:4ch 1fr}.care .d{grid-column:2}.care .a{display:none}}
+/* intro */
+.intro{text-align:center}
+.intro h2{font:300 clamp(25px,3.7vw,58px)/1.6 "Noto Serif KR",serif;letter-spacing:-.04em;max-width:19em;margin:0 auto}
+.intro .sign{margin-top:48px;font:italic 400 21px "Cormorant Garamond",serif;color:var(--mute)}
 
-.info{background:var(--ink);color:#efe7dc;display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,120px)}
-.info h3{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:400;font-size:24px;color:#c9a388;margin-bottom:24px}
-.info dl{display:grid;grid-template-columns:auto 1fr;gap:0}
-.info dt,.info dd{padding:15px 0;border-bottom:1px solid #4a4039}
+/* doctor */
+.doc{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(40px,8vw,140px);align-items:center;background:#ece5db}
+.doc .ph{position:relative;aspect-ratio:4/5;max-width:520px;justify-self:end;width:100%}
+.doc .ph::before{content:"";position:absolute;inset:8% -7% -6% 12%;background:var(--clay);opacity:.22}
+.doc .ph .ri{position:relative;height:100%}
+.doc .ph img{object-position:50% 20%}
+.doc .role{font-size:14px;color:var(--mute);letter-spacing:.04em}
+.doc h2{font:300 clamp(38px,4.6vw,68px)/1.2 "Noto Serif KR",serif;letter-spacing:.14em;margin:10px 0 30px}
+.doc p{max-width:30em;color:#574b43}
+.doc ul{margin:36px 0 40px;border-top:1px solid var(--line);max-width:30em}
+.doc li{padding:13px 0;border-bottom:1px solid var(--line);font-size:14.5px;display:flex;gap:20px}
+.doc li span{color:var(--clay);font:italic 400 17px "Cormorant Garamond",serif;width:3.4em;flex:none}
+@media(max-width:860px){.doc{grid-template-columns:1fr}.doc .ph{justify-self:start;max-width:78%}}
+
+/* programs */
+.prog{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,120px);padding-block:0}
+.prog .pics{position:sticky;top:0;height:100vh;padding:11vh 0}
+.prog .pics div{position:relative;height:100%;overflow:hidden}
+.prog .pics img{position:absolute;inset:0;opacity:0;transform:scale(1.08);transition:opacity 1s var(--e),transform 1.6s var(--e)}
+.prog[data-active="0"] .pics img:nth-child(1),.prog[data-active="1"] .pics img:nth-child(2),.prog[data-active="2"] .pics img:nth-child(3){opacity:1;transform:none}
+.prog .pics b{position:absolute;right:22px;top:14px;font:300 clamp(64px,8vw,128px)/1 "Cormorant Garamond",serif;color:#fff;mix-blend-mode:overlay}
+.prog .step{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:60px 0}
+.prog .step .m{display:none}
+.prog .step .no{font:italic 400 20px "Cormorant Garamond",serif;color:var(--clay)}
+.prog .step h3{font:300 clamp(40px,5vw,78px)/1.05 "Cormorant Garamond",serif;margin:8px 0 26px}
+.prog .step h4{font:400 clamp(19px,1.9vw,25px)/1.6 "Noto Serif KR",serif;letter-spacing:-.03em;margin-bottom:16px}
+.prog .step p{color:#6a5e55;max-width:27em}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:28px 0 36px}
+.tags li{border:1px solid var(--line);border-radius:99px;padding:5px 16px;font-size:13.5px;color:#6a5e55}
+@media(max-width:860px){.prog{grid-template-columns:1fr;padding-block:40px}.prog .pics{display:none}.prog .step{min-height:0;padding:44px 0}.prog .step .m{display:block;aspect-ratio:4/3;margin-bottom:28px}}
+
+/* journey */
+.jr{background:var(--deep);color:#efe7dc;padding:0}
+.jr .head{padding:0 var(--pad) clamp(28px,4vw,56px);display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
+.jr h2{font:300 clamp(44px,7vw,116px)/1 "Cormorant Garamond",serif;letter-spacing:-.01em}
+.jr .head p{color:#a3978a;font-size:15px;max-width:22em}
+.jr .track{padding:0 var(--pad);gap:clamp(16px,2vw,28px)}
+.jr .card{flex:none;width:min(78vw,440px);border:1px solid #453b34;padding:clamp(22px,2.4vw,34px);display:flex;flex-direction:column;gap:18px;background:#2a231e}
+.jr .card .im{aspect-ratio:16/10;overflow:hidden}
+.jr .card i{font:italic 400 19px "Cormorant Garamond",serif;color:#d0a589}
+.jr .card h3{font:400 clamp(26px,2.6vw,36px)/1.15 "Cormorant Garamond",serif}
+.jr .card p{color:#b3a79a;font-size:15px}
+.jr .bar{margin:clamp(28px,4vw,52px) var(--pad) 0;height:1px;background:#453b34;position:relative}
+.jr .bar::after{content:"";position:absolute;inset:0;background:#d0a589;transform:scaleX(var(--p,0));transform-origin:left}
+@media(max-width:860px){.jr{padding:88px 0}.jr .head{display:block}.jr .head p{margin-top:16px}.jr .bar{display:none}}
+
+/* space */
+.sp .top{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:clamp(36px,5vw,72px)}
+.sp h2{font:300 clamp(32px,4.6vw,70px)/1.3 "Noto Serif KR",serif;letter-spacing:-.045em}
+.sp .top p{max-width:24em;color:#6a5e55;font-size:15px}
+.sp .g{display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(14px,2vw,28px);align-items:end}
+.sp .g>div{overflow:hidden}
+.sp .a{aspect-ratio:16/11}.sp .b{aspect-ratio:4/5;transform:translateY(calc((.5 - var(--p,.5))*90px))}
+.sp .c{grid-column:1/-1;aspect-ratio:21/9;margin-top:clamp(14px,2vw,28px)}
+.sp .c.in img{transform:translateY(calc((var(--p,.5) - .5)*-12%)) scale(1.14);transition:clip-path 1.4s var(--e)}
+@media(max-width:760px){.sp .top{display:block}.sp .top p{margin-top:18px}.sp .g{grid-template-columns:1fr}.sp .b{transform:none;aspect-ratio:4/3}.sp .c{aspect-ratio:4/3}}
+
+/* info */
+.info{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,120px);border-top:1px solid var(--line)}
+.info h3{font:400 clamp(30px,3.2vw,46px)/1 "Cormorant Garamond",serif;margin-bottom:28px}
+.info dl{display:grid;grid-template-columns:auto 1fr}
+.info dt,.info dd{padding:16px 0;border-bottom:1px solid var(--line)}
 .info dd{text-align:right;font-variant-numeric:tabular-nums}
-.info p{color:#b8ab9d;font-size:15px}
-.info .tel{font-family:"Cormorant Garamond",serif;font-size:clamp(40px,5vw,72px);line-height:1.1;margin:8px 0 20px;color:#fff}
+.info dd small{color:var(--clay);margin-left:8px}
+.info .note{margin-top:18px;font-size:14px;color:var(--mute)}
+.info address{font-style:normal;color:#574b43}
+.info address b{display:block;font:400 clamp(19px,1.8vw,23px)/1.6 "Noto Serif KR",serif;color:var(--ink);margin-bottom:8px}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.btns a{border:1px solid var(--ink);padding:13px 24px;font-size:14.5px;transition:.3s}
+.btns a:hover,.btns a.fill{background:var(--ink);color:var(--bg)}
+.btns a.fill:hover{background:var(--clay);border-color:var(--clay)}
 @media(max-width:760px){.info{grid-template-columns:1fr}}
-footer{padding:28px var(--pad);font-size:12.5px;color:var(--mute);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-@media(prefers-reduced-motion:reduce){*{transition:none!important}.rv{opacity:1;transform:none}}
+
+/* cta */
+.cta{position:relative;color:#fff;text-align:center;overflow:hidden;padding-block:clamp(120px,17vw,260px)}
+.cta .bg{position:absolute;inset:-12% 0;transform:translateY(calc((var(--p,.5) - .5)*-14%))}
+.cta::after{content:"";position:absolute;inset:0;background:rgba(30,22,17,.5)}
+.cta>*:not(.bg){position:relative;z-index:1}
+.cta h2{font:300 clamp(56px,11vw,190px)/1 "Cormorant Garamond",serif;font-style:italic}
+.cta p{margin:22px 0 38px;font:300 clamp(16px,1.5vw,20px)/1.7 "Noto Serif KR",serif}
+.cta a{display:inline-block;border:1px solid #fff;padding:16px 40px;border-radius:99px;transition:.35s}
+.cta a:hover{background:#fff;color:var(--ink)}
+
+footer{background:var(--deep);color:#9b8f83;padding:56px var(--pad) 40px;font-size:13.5px;display:grid;grid-template-columns:1fr auto;gap:28px}
+footer .logo{font:400 26px/1 "Cormorant Garamond",serif;letter-spacing:.34em;color:#efe7dc;margin-bottom:18px}
+footer nav{display:flex;gap:26px;color:#cfc4b8;align-self:start}
+footer small{grid-column:1/-1;border-top:1px solid #3d342e;padding-top:20px;font-size:12px}
+@media(max-width:760px){footer{grid-template-columns:1fr}footer nav{flex-wrap:wrap}}
+
+.quick a{background:#fff;color:var(--ink)}
+.quick a.k{background:var(--clay);color:#fff}
+.mbar{background:var(--deep);color:#efe7dc}
+.mbar a+a{border-left:1px solid #453b34}
+.mbar a:last-child{background:var(--clay);color:#fff}
 </style>
 </head>
 <body>
-<div class="demo"><span>컨셉 작업 · 실제 병원이 아닌 가상의 브랜드입니다</span><a href="../#works">← 돌아가기</a></div>
-<nav>
-  <a class="logo" href="#">결 피부과의원</a>
-  <ul><li><a href="#care">진료 안내</a></li><li><a href="#info">진료 시간</a></li><li><a href="#info">오시는 길</a></li><li><a class="res" href="#info">예약 상담</a></li></ul>
+<div class="loader"><span class="en" style="font-size:26px;letter-spacing:.4em">GYEOL</span></div>
+<div class="demo"><span>컨셉 작업 · 가상의 병원</span><a href="../#works">← 돌아가기</a></div>
+
+<header class="hd">
+  <a class="logo" href="#top">GYEOL</a>
+  <div class="r"><a class="res" href="#info">예약 상담</a><button class="burger" data-menu aria-label="메뉴 열기"><i></i><i></i></button></div>
+</header>
+<nav class="nav-ov" aria-label="전체 메뉴">
+  <ul>
+    <li><a style="--i:0" href="#about">Philosophy<small>진료 철학</small></a></li>
+    <li><a style="--i:1" href="#doctor">Doctor<small>의료진</small></a></li>
+    <li><a style="--i:2" href="#program">Signature<small>대표 진료</small></a></li>
+    <li><a style="--i:3" href="#journey">Care Journey<small>진료 과정</small></a></li>
+    <li><a style="--i:4" href="#space">Space<small>공간</small></a></li>
+    <li><a style="--i:5" href="#info">Contact<small>진료 시간 · 오시는 길</small></a></li>
+  </ul>
+  <div class="side"><b>02 · 000 · 0000</b>평일 10:00 – 19:00 · 토요일 10:00 – 15:00<br>서울시 ○○구 ○○로 00, 3층</div>
 </nav>
 
-<section class="hero">
-  <div>
-    <div class="en rv">Calm skin, quiet confidence</div>
-    <h1 class="rv" style="--d:.1s">피부의 결을<br>다시, 고르게.</h1>
-    <p class="rv" style="--d:.2s">많이 하는 것보다 꼭 필요한 것만 권합니다. 충분히 듣고, 천천히 설명하고, 피부가 편안해지는 속도에 맞춥니다.</p>
-    <a class="go rv" style="--d:.3s" href="#info">예약 상담 <i>→</i></a>
+<main id="top">
+<section class="hero" data-p>
+  <div class="bg"><img src="https://images.unsplash.com/photo-1581182800629-7d90925ad072?auto=format&fit=crop&w=2000&q=78" alt=""></div>
+  <div class="txt">
+    <p class="k"><span class="up" style="--i:0">피부가 편안해지는 속도로, 결 피부과의원</span></p>
+    <h1><span class="ln"><span class="up" style="--i:1">Quiet Skin,</span></span><span class="ln"><span class="up" style="--i:2"><em>Lasting</em> Calm</span></span></h1>
   </div>
-  <div class="arch rv" style="--d:.2s"><span class="en">Since 2014</span></div>
+  <div class="foot"><span>피부과 전문의 1인 진료</span><span class="sc">SCROLL</span></div>
 </section>
 
-<section class="say">
-  <blockquote class="rv">좋은 진료는 <em>덜어내는 것</em>에서<br>시작한다고 믿습니다.</blockquote>
-  <cite class="rv" style="--d:.15s">결 피부과의원 진료 원칙</cite>
+<section class="intro" id="about">
+  <p class="eyebrow rv">Our Philosophy</p>
+  <h2 data-words>많이 하는 것보다 꼭 필요한 것만 권합니다. 충분히 듣고, 천천히 설명하고, 피부가 편안해지는 속도에 맞춥니다. 좋은 진료는 덜어내는 것에서 시작한다고 믿습니다.</h2>
+  <p class="sign rv">— Gyeol Dermatology</p>
 </section>
 
-<section id="care">
-  <div class="head rv"><h2>진료 안내</h2><span class="en">Our Care</span></div>
-  <ol class="care">
-    <li class="rv"><span class="n">i.</span><span class="t">여드름 · 흉터</span><span class="d">원인과 피부 상태를 먼저 확인하고 단계별로 진료합니다.</span><span class="a">→</span></li>
-    <li class="rv"><span class="n">ii.</span><span class="t">색소 · 잡티</span><span class="d">색소의 깊이와 종류를 구분해 계획을 세웁니다.</span><span class="a">→</span></li>
-    <li class="rv"><span class="n">iii.</span><span class="t">탄력 · 리프팅</span><span class="d">얼굴 전체의 균형을 보고 필요한 부위만 진행합니다.</span><span class="a">→</span></li>
-    <li class="rv"><span class="n">iv.</span><span class="t">피부 질환</span><span class="d">아토피, 습진, 두드러기 등 일반 피부 질환을 진료합니다.</span><span class="a">→</span></li>
-  </ol>
+<section class="doc" id="doctor">
+  <div class="ph"><div class="ri"><img loading="lazy" src="https://images.unsplash.com/photo-1706565029539-d09af5896340?auto=format&fit=crop&w=1100&q=75" alt="대표원장 사진"></div></div>
+  <div>
+    <p class="eyebrow rv">Doctor</p>
+    <p class="role rv">대표원장 · 피부과 전문의</p>
+    <h2 class="rv">서 윤</h2>
+    <p class="rv">피부는 한 번의 시술로 달라지지 않습니다. 생활 습관과 피부 상태를 함께 살피고, 지금 필요한 것과 기다려도 되는 것을 구분해 말씀드립니다. 상담부터 시술, 경과 확인까지 대표원장이 직접 진료합니다.</p>
+    <ul class="rv">
+      <li><span>i.</span>피부과 전문의</li>
+      <li><span>ii.</span>대학병원 피부과 전공의 수료</li>
+      <li><span>iii.</span>대한피부과학회 정회원</li>
+    </ul>
+    <a class="more rv" href="#info">진료 예약 <i>→</i></a>
+  </div>
+</section>
+
+<section class="prog" id="program" data-steps>
+  <div class="pics"><div>
+    <img loading="lazy" src="https://images.unsplash.com/photo-1670201203208-055d6d79db4a?auto=format&fit=crop&w=1200&q=75" alt="">
+    <img loading="lazy" src="https://images.unsplash.com/photo-1683408640631-2c99fff964d7?auto=format&fit=crop&w=1200&q=75" alt="">
+    <img loading="lazy" src="https://images.unsplash.com/photo-1781344116880-029945a42b75?auto=format&fit=crop&w=1200&q=75" alt="">
+  </div></div>
+  <div>
+    <article class="step">
+      <div class="m ri"><img loading="lazy" src="https://images.unsplash.com/photo-1670201203208-055d6d79db4a?auto=format&fit=crop&w=900&q=75" alt=""></div>
+      <span class="no">Signature 01</span><h3>Skin Balance</h3>
+      <h4>번들거림과 당김이 함께 있는 피부를<br>고르게 맞춥니다.</h4>
+      <p>피부 장벽 상태를 먼저 확인하고, 수분과 유분의 균형을 되돌리는 순서로 진행합니다. 자극이 적은 방법부터 시작합니다.</p>
+      <ul class="tags"><li>피부 장벽</li><li>수분 관리</li><li>여드름</li></ul>
+      <a class="more" href="#info">자세히 보기 <i>→</i></a>
+    </article>
+    <article class="step">
+      <div class="m ri"><img loading="lazy" src="https://images.unsplash.com/photo-1683408640631-2c99fff964d7?auto=format&fit=crop&w=900&q=75" alt=""></div>
+      <span class="no">Signature 02</span><h3>Calm Lifting</h3>
+      <h4>얼굴 전체의 균형을 보고<br>필요한 부위만 진행합니다.</h4>
+      <p>한 부위만 당기면 인상이 달라집니다. 정면과 측면을 함께 보고, 과하지 않은 범위에서 계획을 세웁니다.</p>
+      <ul class="tags"><li>탄력</li><li>윤곽</li><li>회복 관리</li></ul>
+      <a class="more" href="#info">자세히 보기 <i>→</i></a>
+    </article>
+    <article class="step">
+      <div class="m ri"><img loading="lazy" src="https://images.unsplash.com/photo-1781344116880-029945a42b75?auto=format&fit=crop&w=900&q=75" alt=""></div>
+      <span class="no">Signature 03</span><h3>Clear Tone</h3>
+      <h4>색소의 깊이와 종류를 구분해<br>단계별로 접근합니다.</h4>
+      <p>기미, 잡티, 홍조는 원인이 다릅니다. 진단 장비로 구분한 뒤 피부가 견딜 수 있는 간격으로 진행합니다.</p>
+      <ul class="tags"><li>기미 · 잡티</li><li>홍조</li><li>톤 관리</li></ul>
+      <a class="more" href="#info">자세히 보기 <i>→</i></a>
+    </article>
+  </div>
+</section>
+
+<section class="jr hpin" id="journey" data-p="pin">
+  <div class="stick">
+    <div class="head"><h2 class="rv">Care<br><em>Journey</em></h2><p class="rv">첫 상담부터 경과 확인까지, 네 단계로 진행합니다. 모든 단계에서 대표원장이 직접 설명합니다.</p></div>
+    <div class="track">
+      <div class="card"><div class="im"><img loading="lazy" src="https://images.unsplash.com/photo-1605204376600-72ed73f1f9ec?auto=format&fit=crop&w=800&q=70" alt=""></div><i>01</i><h3>Understanding</h3><p>생활 습관과 그동안의 관리 이력을 듣고, 진단 장비로 피부 상태를 확인합니다.</p></div>
+      <div class="card"><div class="im"><img loading="lazy" src="https://images.unsplash.com/photo-1786171118415-07653ed8cf99?auto=format&fit=crop&w=800&q=70" alt=""></div><i>02</i><h3>Planning</h3><p>지금 필요한 것과 기다려도 되는 것을 나누고, 횟수와 비용을 미리 안내합니다.</p></div>
+      <div class="card"><div class="im"><img loading="lazy" src="https://images.unsplash.com/photo-1713085085470-fba013d67e65?auto=format&fit=crop&w=800&q=70" alt=""></div><i>03</i><h3>Treatment</h3><p>계획한 범위 안에서 진행합니다. 당일 상태에 따라 강도를 조절합니다.</p></div>
+      <div class="card"><div class="im"><img loading="lazy" src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=70" alt=""></div><i>04</i><h3>Follow-up</h3><p>시술 후 경과를 확인하고, 집에서 할 수 있는 관리 방법을 알려 드립니다.</p></div>
+    </div>
+    <div class="bar"></div>
+  </div>
+</section>
+
+<section class="sp" id="space">
+  <div class="top"><div><p class="eyebrow rv">Space</p><h2 class="rv">기다리는 시간도<br>진료의 일부입니다.</h2></div><p class="rv">대기 공간과 진료실, 회복실을 분리했습니다. 다른 분과 마주치지 않도록 예약 간격을 넉넉하게 둡니다.</p></div>
+  <div class="g">
+    <div class="a ri"><img loading="lazy" src="https://images.unsplash.com/photo-1693578538512-fc66f318c833?auto=format&fit=crop&w=1400&q=75" alt="대기 공간"></div>
+    <div class="b ri" data-p style="--d:.15s"><img loading="lazy" src="https://images.unsplash.com/photo-1630835425197-50feeba99ecd?auto=format&fit=crop&w=900&q=75" alt="회복실"></div>
+    <div class="c ri" data-p><img loading="lazy" src="https://images.unsplash.com/photo-1729003702131-51807464dcec?auto=format&fit=crop&w=1800&q=75" alt="진료 공간"></div>
+  </div>
 </section>
 
 <section class="info" id="info">
   <div class="rv">
     <h3>Hours</h3>
-    <dl><dt>월 · 화 · 목 · 금</dt><dd>10:00 – 19:00</dd><dt>수요일</dt><dd>14:00 – 21:00</dd><dt>토요일</dt><dd>10:00 – 15:00</dd><dt>일요일 · 공휴일</dt><dd>휴진</dd></dl>
+    <dl><dt>월 · 화 · 목 · 금</dt><dd>10:00 – 19:00</dd><dt>수요일</dt><dd>14:00 – 21:00<small>야간 진료</small></dd><dt>토요일</dt><dd>10:00 – 15:00</dd><dt>점심 시간</dt><dd>13:00 – 14:00</dd><dt>일요일 · 공휴일</dt><dd>휴진</dd></dl>
+    <p class="note">예약제로 운영합니다. 접수는 진료 종료 30분 전에 마감합니다.</p>
   </div>
   <div class="rv" style="--d:.12s">
-    <h3>Reservation</h3>
-    <div class="tel">02 · 000 · 0000</div>
-    <p>서울시 ○○구 ○○로 00, 3층<br>○○역 2번 출구에서 걸어서 3분<br>건물 뒤편 주차장 이용 가능</p>
+    <h3>Location</h3>
+    <address><b>서울시 ○○구 ○○로 00, 3층</b>○○역 2번 출구에서 걸어서 3분<br>건물 뒤편 주차장 이용 가능 (2시간 무료)</address>
+    <div class="btns"><a href="#info">네이버 지도</a><a href="#info">카카오맵</a><a href="#info">티맵</a></div>
+    <div class="btns"><a class="fill" href="#info">네이버 예약</a><a class="fill" href="#info">카카오톡 상담</a><a href="tel:020000000">02 · 000 · 0000</a></div>
   </div>
 </section>
-<footer><span>결 피부과의원 · 컨셉 작업용 가상 정보</span><span>Concept design</span></footer>
-<script>
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
-document.querySelectorAll('.rv').forEach(e=>io.observe(e));
-</script>
+
+<section class="cta" data-p>
+  <div class="bg"><img loading="lazy" src="https://images.unsplash.com/photo-1655943614450-7e7c50f48aed?auto=format&fit=crop&w=1800&q=75" alt=""></div>
+  <h2 class="rv">Reservation</h2>
+  <p class="rv">첫 상담은 30분, 충분히 듣는 것부터 시작합니다.</p>
+  <a class="rv" href="#info">예약 상담 신청</a>
+</section>
+</main>
+
+<footer>
+  <div><div class="logo">GYEOL</div>결 피부과의원 · 대표자 ○○○ · 사업자등록번호 000-00-00000<br>서울시 ○○구 ○○로 00, 3층 · 02-000-0000</div>
+  <nav><a href="#about">진료 철학</a><a href="#program">대표 진료</a><a href="#info">오시는 길</a><a href="#top">맨 위로 ↑</a></nav>
+  <small>컨셉 작업용 가상 정보입니다. 사진 출처 Unsplash. 사진 속 인물과 장소는 이 페이지의 내용과 관계가 없습니다.</small>
+</footer>
+
+<div class="quick"><a class="k" href="#info">카톡<br>상담</a><a href="#info">예약</a><a href="#top" aria-label="맨 위로">↑</a></div>
+<div class="mbar"><a href="tel:020000000">전화</a><a href="#info">카톡 상담</a><a href="#info">예약하기</a></div>
+<script src="fx.js"></script>
 </body>
 </html>

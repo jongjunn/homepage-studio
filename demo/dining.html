@@ -2,125 +2,237 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
 <title>미월 MIWOL — 컨셉 작업</title>
+<link rel="preconnect" href="https://images.unsplash.com">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+KR:wght@300;400&display=swap">
+<link rel="stylesheet" href="base.css">
 <style>
-:root{--bg:#0c0b0a;--ink:#e9e2d3;--mute:#8d8576;--line:#2b2823;--gold:#b8975a;--pad:clamp(20px,5vw,72px);--e:cubic-bezier(.2,.7,.1,1)}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:"Pretendard Variable",-apple-system,"Apple SD Gothic Neo",sans-serif;font-weight:300;font-size:16px;line-height:1.8;word-break:keep-all;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{color:inherit;text-decoration:none}ul,ol{list-style:none}
+:root{--bg:#0b0a09;--ink:#ebe4d6;--mute:#8f8778;--line:#2a2722;--gold:#b9985c}
+body{font:300 16px/1.85 "Pretendard Variable",-apple-system,"Apple SD Gothic Neo",sans-serif}
 .en{font-family:"Cormorant Garamond",serif}
-.kr{font-family:"Noto Serif KR",serif;font-weight:300}
-.demo{background:#1a1815;color:var(--mute);font-size:12.5px;display:flex;justify-content:space-between;padding:8px var(--pad)}
-.demo a{color:var(--ink)}
-nav{position:absolute;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:28px var(--pad);font-size:13px;letter-spacing:.18em;z-index:2}
-nav ul{display:flex;gap:40px}
-nav a:hover{color:var(--gold)}
-@media(max-width:760px){nav ul li:not(:last-child){display:none}}
-.rv{opacity:0;transform:translateY(26px);transition:opacity 1.3s var(--e),transform 1.3s var(--e);transition-delay:var(--d,0s)}
-.rv.in{opacity:1;transform:none}
+.tag{font:italic 400 clamp(18px,1.5vw,22px)/1 "Cormorant Garamond",serif;color:var(--gold);margin-bottom:26px}
+section{padding:clamp(96px,13vw,200px) var(--pad)}
 
-.hero{min-height:100svh;display:grid;place-items:center;text-align:center;position:relative;overflow:hidden;padding:120px var(--pad) 80px}
-.plate{position:absolute;width:min(92vmin,820px);aspect-ratio:1;animation:spin 120s linear infinite}
-.plate circle{fill:none;stroke:var(--gold);stroke-width:.25;opacity:.55}
-.plate .dash{stroke-dasharray:.6 2.4;opacity:.8}
-.plate .dot{fill:var(--gold);stroke:none;opacity:1}
-@keyframes spin{to{transform:rotate(360deg)}}
-.hero .in1{position:relative}
-.hero small{display:block;font-size:12.5px;letter-spacing:.42em;color:var(--gold);margin-bottom:26px}
-.hero h1{font-family:"Cormorant Garamond",serif;font-weight:300;font-style:italic;font-size:clamp(84px,19vw,300px);line-height:.9;letter-spacing:-.03em}
-.hero p{font-family:"Noto Serif KR",serif;font-size:clamp(16px,1.7vw,22px);margin-top:30px;letter-spacing:.06em}
-.scroll{position:absolute;bottom:30px;left:50%;width:1px;height:56px;background:linear-gradient(var(--gold),transparent);animation:drop 2.4s var(--e) infinite;transform-origin:top}
+.hd .logo{font:400 21px/1 "Cormorant Garamond",serif;letter-spacing:.42em}
+.hd .r{display:flex;align-items:center;gap:20px}
+.hd .res{font-size:12.5px;letter-spacing:.22em;border:1px solid var(--gold);color:var(--gold);padding:11px 22px;transition:.35s}
+.hd .res:hover{background:var(--gold);color:var(--bg)}
+body.scrolled:not(.menu) .hd{background:rgba(11,10,9,.8);backdrop-filter:blur(14px);padding-block:12px}
+@media(max-width:560px){.hd .res{display:none}}
+.nav-ov{background:#14120f;display:grid;place-content:center;text-align:center;padding:100px var(--pad) 60px}
+.nav-ov li a{font:300 italic clamp(40px,6.6vw,96px)/1.2 "Cormorant Garamond",serif;transition-property:transform,color}
+.nav-ov li a:hover{color:var(--gold)}
+.nav-ov p{margin-top:40px;color:var(--mute);font-size:14px;letter-spacing:.08em}
+
+.hero{position:relative;height:100svh;min-height:620px;padding:0;overflow:hidden;display:grid;place-items:center;text-align:center}
+.hero .bg{position:absolute;inset:-8% 0;transform:translateY(calc(var(--p,.5)*14% - 7%))}
+.hero .bg img{transform:scale(1.2);transition:transform 8s cubic-bezier(.1,.5,.2,1);filter:brightness(.74)}
+body.ready .hero .bg img{transform:scale(1.03)}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(90% 70% at 50% 50%,transparent 20%,rgba(11,10,9,.72) 100%),linear-gradient(transparent 60%,var(--bg))}
+.hero .in{position:relative;z-index:1}
+.hero small{display:block;font-size:12.5px;letter-spacing:.46em;color:var(--gold);overflow:hidden;margin-bottom:10px}
+.hero h1{font:300 italic clamp(96px,21vw,340px)/.95 "Cormorant Garamond",serif;letter-spacing:-.03em}
+.hero p{font:300 clamp(16px,1.6vw,22px)/1.6 "Noto Serif KR",serif;letter-spacing:.1em;overflow:hidden;margin-top:8px}
+.hero .v{position:absolute;z-index:1;top:50%;writing-mode:vertical-rl;font:300 13px/1 "Noto Serif KR",serif;letter-spacing:.5em;color:#cfc6b4;transform:translateY(-50%)}
+.hero .v.l{left:var(--pad)}.hero .v.r{right:var(--pad)}
+.hero .sc{position:absolute;z-index:1;bottom:28px;left:50%;width:1px;height:64px;background:linear-gradient(var(--gold),transparent);animation:drop 2.4s var(--e) infinite;transform-origin:top}
 @keyframes drop{0%{transform:scaleY(0)}60%{transform:scaleY(1);opacity:1}100%{opacity:0}}
+@media(max-width:760px){.hero .v{display:none}}
 
-section{padding:clamp(80px,12vw,180px) var(--pad)}
-.about{display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(32px,7vw,120px);border-top:1px solid var(--line)}
-.tag{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:22px;color:var(--gold)}
-.about h2{font-family:"Noto Serif KR",serif;font-weight:300;font-size:clamp(26px,3.6vw,52px);line-height:1.55;letter-spacing:-.03em}
-.about p{color:#aaa293;max-width:34em;margin-top:32px}
-@media(max-width:760px){.about{grid-template-columns:1fr}}
+.story{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(40px,8vw,140px);align-items:center}
+.story h2{font:300 clamp(25px,3.3vw,50px)/1.65 "Noto Serif KR",serif;letter-spacing:-.035em}
+.story .by{margin-top:44px;color:var(--mute);font-size:14.5px}
+.story .by b{display:block;font:400 italic 26px/1.3 "Cormorant Garamond",serif;color:var(--ink)}
+.story .ph{aspect-ratio:4/5}
+.story .ph img{filter:saturate(.8)}
+@media(max-width:860px){.story{grid-template-columns:1fr}.story .ph{max-width:420px}}
 
-.menu{max-width:980px;margin:0 auto;text-align:center}
-.menu h2{font-family:"Cormorant Garamond",serif;font-weight:300;font-size:clamp(44px,7vw,104px);line-height:1;margin:10px 0 14px}
-.menu .sub{color:var(--mute);font-size:14.5px;margin-bottom:clamp(40px,6vw,80px)}
-.menu li{display:flex;align-items:baseline;gap:18px;padding:22px 0;border-bottom:1px solid var(--line);text-align:left;transition:color .4s}
-.menu li:hover{color:var(--gold)}
-.menu .n{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--gold);width:2.4em;flex:none}
-.menu .t{font-family:"Noto Serif KR",serif;font-size:clamp(18px,2vw,25px)}
-.menu .l{flex:1;border-bottom:1px dotted #4a453d;transform:translateY(-5px)}
-.menu .d{color:var(--mute);font-size:14.5px;text-align:right}
-@media(max-width:640px){.menu .l{display:none}.menu li{flex-wrap:wrap}.menu .d{width:100%;text-align:left;padding-left:calc(2.4em + 18px)}}
-.price{display:flex;justify-content:center;gap:clamp(32px,7vw,96px);margin-top:56px;font-family:"Cormorant Garamond",serif;font-size:clamp(26px,3vw,40px)}
-.price span{display:block;font-family:"Pretendard Variable",sans-serif;font-size:13px;letter-spacing:.2em;color:var(--mute)}
+.course{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,120px);border-top:1px solid var(--line)}
+.course h2{font:300 clamp(48px,7.4vw,120px)/1 "Cormorant Garamond",serif;margin-bottom:14px}
+.course .sub{color:var(--mute);font-size:14.5px;margin-bottom:clamp(32px,4vw,56px);max-width:26em}
+.course .step{display:grid;grid-template-columns:3.2em 1fr;gap:6px 0;padding:26px 0;border-bottom:1px solid var(--line);cursor:default;transition:padding .5s var(--e),opacity .4s;opacity:.42}
+.course .step:first-of-type{border-top:1px solid var(--line)}
+.course .step i{font:italic 400 19px "Cormorant Garamond",serif;color:var(--gold)}
+.course .step b{font:400 clamp(20px,2.2vw,30px)/1.3 "Noto Serif KR",serif;letter-spacing:-.02em}
+.course .step span{grid-column:2;color:var(--mute);font-size:14.5px}
+.course[data-active="0"] .step:nth-of-type(1),.course[data-active="1"] .step:nth-of-type(2),.course[data-active="2"] .step:nth-of-type(3),.course[data-active="3"] .step:nth-of-type(4),.course[data-active="4"] .step:nth-of-type(5){opacity:1;padding-left:14px}
+.course .pics{position:sticky;top:12vh;height:76vh;align-self:start;overflow:hidden}
+.course .pics img{position:absolute;inset:0;opacity:0;transform:scale(1.1);transition:opacity .9s var(--e),transform 1.6s var(--e)}
+.course[data-active="0"] .pics img:nth-child(1),.course[data-active="1"] .pics img:nth-child(2),.course[data-active="2"] .pics img:nth-child(3),.course[data-active="3"] .pics img:nth-child(4),.course[data-active="4"] .pics img:nth-child(5){opacity:1;transform:none}
+.price{display:flex;gap:clamp(32px,6vw,80px);margin-top:48px;font:300 clamp(30px,3.4vw,46px)/1.2 "Cormorant Garamond",serif}
+.price span{display:block;font:400 12.5px "Pretendard Variable",sans-serif;letter-spacing:.24em;color:var(--mute);margin-bottom:6px}
+@media(max-width:860px){.course{grid-template-columns:1fr}.course .pics{position:relative;top:0;height:auto;aspect-ratio:4/3;order:-1}}
 
-.visit{border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,64px)}
-.visit h3{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:400;font-size:22px;color:var(--gold);margin-bottom:18px}
-.visit p{color:#aaa293;font-size:15px}
-.visit .big{font-family:"Cormorant Garamond",serif;font-size:clamp(30px,3.4vw,46px);color:var(--ink);line-height:1.2;margin-bottom:10px}
-.btn{display:inline-block;margin-top:22px;padding:13px 30px;border:1px solid var(--gold);color:var(--gold);font-size:13px;letter-spacing:.2em;transition:.4s}
-.btn:hover{background:var(--gold);color:var(--bg)}
-@media(max-width:760px){.visit{grid-template-columns:1fr}}
-footer{padding:28px var(--pad);border-top:1px solid var(--line);font-size:12.5px;color:var(--mute);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.rv{opacity:1;transform:none}}
+.gal{padding:0;background:#11100e}
+.gal .head{padding:0 var(--pad) clamp(24px,3vw,44px);display:flex;justify-content:space-between;align-items:flex-end}
+.gal h2{font:300 italic clamp(40px,6vw,96px)/1 "Cormorant Garamond",serif}
+.gal .head span{color:var(--mute);font-size:13px;letter-spacing:.2em}
+.gal .track{padding:0 var(--pad);gap:clamp(14px,2vw,28px);align-items:flex-end}
+.gal figure{width:min(74vw,520px);flex:none}
+.gal figure:nth-child(even){width:min(60vw,380px)}
+.gal figure div{aspect-ratio:4/5;overflow:hidden}
+.gal figure:nth-child(even) div{aspect-ratio:1}
+.gal figure img{transition:transform 1.4s var(--e)}
+.gal figure:hover img{transform:scale(1.06)}
+.gal figcaption{display:flex;justify-content:space-between;padding-top:14px;font:400 15px "Noto Serif KR",serif}
+.gal figcaption i{font:italic 400 17px "Cormorant Garamond",serif;color:var(--gold)}
+@media(max-width:860px){.gal{padding:88px 0}}
+
+.room{position:relative;padding:0;height:120vh;overflow:hidden;display:grid;place-items:center;text-align:center}
+.room .bg{position:absolute;inset:-14% 0;transform:translateY(calc((var(--p,.5) - .5)*-18%))}
+.room .bg img{filter:brightness(.55)}
+.room div:not(.bg){position:relative}
+.room h2{font:300 clamp(34px,6vw,96px)/1.35 "Noto Serif KR",serif;letter-spacing:-.04em}
+.room p{margin-top:26px;color:#cfc6b4;max-width:26em;margin-inline:auto}
+@media(max-width:760px){.room{height:86vh}}
+
+.rsv{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(40px,8vw,140px)}
+.rsv h2{font:300 clamp(48px,7vw,112px)/1 "Cormorant Garamond",serif;margin-bottom:36px}
+.rsv dl{display:grid;grid-template-columns:7em 1fr;border-top:1px solid var(--line)}
+.rsv dt,.rsv dd{padding:17px 0;border-bottom:1px solid var(--line)}
+.rsv dt{font:italic 400 18px "Cormorant Garamond",serif;color:var(--gold)}
+.rsv dd{color:#cfc6b4}
+.rsv form{position:relative;border:1px solid var(--line);padding:clamp(24px,3.4vw,48px);display:grid;grid-template-columns:1fr 1fr;gap:22px 20px;align-self:start;background:#100f0d}
+.rsv label{display:block;font-size:12.5px;letter-spacing:.14em;color:var(--mute)}
+.rsv label.w{grid-column:1/-1}
+.rsv input,.rsv select,.rsv textarea{display:block;width:100%;margin-top:8px;padding:12px 0;background:none;border:0;border-bottom:1px solid #4a453d;border-radius:0;font-size:16px;color-scheme:dark;transition:border-color .3s}
+.rsv select option{background:#14120f}
+.rsv input:focus,.rsv select:focus,.rsv textarea:focus{outline:0;border-color:var(--gold)}
+.rsv textarea{resize:vertical;min-height:64px}
+.rsv button{grid-column:1/-1;margin-top:8px;padding:18px;border:1px solid var(--gold);color:var(--gold);letter-spacing:.3em;font-size:13px;transition:.35s}
+.rsv button:hover{background:var(--gold);color:var(--bg)}
+.rsv .ok{position:absolute;inset:0;display:grid;place-content:center;text-align:center;background:#100f0d;padding:32px;opacity:0;visibility:hidden;transition:.6s}
+.rsv .ok b{font:300 italic 44px/1.2 "Cormorant Garamond",serif;color:var(--gold);display:block;margin-bottom:12px}
+.rsv form.sent .ok{opacity:1;visibility:visible}
+@media(max-width:860px){.rsv{grid-template-columns:1fr}}
+@media(max-width:480px){.rsv form{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--line);padding:48px var(--pad) 36px;color:var(--mute);font-size:13px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+footer .logo{font:400 24px/1 "Cormorant Garamond",serif;letter-spacing:.42em;color:var(--ink);margin-bottom:16px}
+footer small{flex-basis:100%;border-top:1px solid var(--line);padding-top:18px;font-size:12px}
+
+.quick a{background:#1b1915;color:var(--ink);border:1px solid #3a352d}
+.quick a.k{background:var(--gold);color:var(--bg);border-color:var(--gold)}
+.mbar{background:#14120f;border-top:1px solid var(--line)}
+.mbar a+a{border-left:1px solid var(--line)}
+.mbar a:last-child{background:var(--gold);color:var(--bg)}
 </style>
 </head>
 <body>
-<div class="demo"><span>컨셉 작업 · 실제 매장이 아닌 가상의 브랜드입니다</span><a href="../#works">← 돌아가기</a></div>
-<nav>
-  <a href="#" class="en" style="font-size:20px;letter-spacing:.3em">MIWOL</a>
-  <ul><li><a href="#about">STORY</a></li><li><a href="#menu">COURSE</a></li><li><a href="#visit">RESERVATION</a></li></ul>
+<div class="loader"><span class="en" style="font-size:40px;font-style:italic;color:#b9985c">Miwol</span></div>
+<div class="demo"><span>컨셉 작업 · 가상의 매장</span><a href="../#works">← 돌아가기</a></div>
+
+<header class="hd">
+  <a class="logo" href="#top">MIWOL</a>
+  <div class="r"><a class="res" href="#rsv">RESERVE</a><button class="burger" data-menu aria-label="메뉴 열기"><i></i><i></i></button></div>
+</header>
+<nav class="nav-ov" aria-label="전체 메뉴">
+  <ul>
+    <li><a style="--i:0" href="#story">Story</a></li>
+    <li><a style="--i:1" href="#course">Course</a></li>
+    <li><a style="--i:2" href="#gallery">Plates</a></li>
+    <li><a style="--i:3" href="#room">The Room</a></li>
+    <li><a style="--i:4" href="#rsv">Reservation</a></li>
+  </ul>
+  <p>화 – 일 · 12:00 / 18:30 · 02-000-0000</p>
 </nav>
 
-<section class="hero">
-  <svg class="plate" viewBox="0 0 100 100" aria-hidden="true">
-    <circle cx="50" cy="50" r="49"/><circle cx="50" cy="50" r="44" class="dash"/><circle cx="50" cy="50" r="33"/><circle cx="50" cy="50" r="32.2"/>
-    <circle cx="50" cy="1" r=".7" class="dot"/><circle cx="83" cy="50" r=".5" class="dot"/>
-  </svg>
-  <div class="in1">
-    <small class="rv">KOREAN SEASONAL DINING</small>
-    <h1 class="rv" style="--d:.15s">Miwol</h1>
-    <p class="rv" style="--d:.35s">계절을 한 접시에 담습니다</p>
+<main id="top">
+<section class="hero" data-p>
+  <div class="bg"><img src="https://images.unsplash.com/photo-1692197275441-40c874f40385?auto=format&fit=crop&w=2000&q=78" alt=""></div>
+  <span class="v l">계절을 한 접시에</span><span class="v r">열두 자리 · 하루 두 번</span>
+  <div class="in">
+    <small><span class="up" style="--i:0">KOREAN SEASONAL DINING</span></small>
+    <h1><span class="ln"><span class="up" style="--i:1">Miwol</span></span></h1>
+    <p><span class="up" style="--i:2">미월 · 微月</span></p>
   </div>
-  <i class="scroll"></i>
+  <i class="sc"></i>
 </section>
 
-<section class="about" id="about">
-  <div class="tag rv">The Story</div>
+<section class="story" id="story">
   <div>
-    <h2 class="rv">그날 들어온 재료로<br>그날의 상을 차립니다.</h2>
-    <p class="rv" style="--d:.12s">미월은 하루 두 번, 열두 자리만 준비합니다. 메뉴는 달마다 바뀌고, 그날 재료에 따라 접시 하나가 달라지기도 합니다. 천천히 드시고 가시도록 식사 시간은 넉넉하게 잡아 둡니다.</p>
+    <p class="tag rv">The Story</p>
+    <h2 data-words>그날 들어온 재료로 그날의 상을 차립니다. 메뉴는 달마다 바뀌고, 재료에 따라 접시 하나가 달라지기도 합니다. 천천히 드시고 가시도록 식사 시간은 넉넉하게 잡아 둡니다.</h2>
+    <p class="by rv"><b>Chef. Han</b>미월 오너 셰프</p>
+  </div>
+  <div class="ph ri"><img loading="lazy" src="https://images.unsplash.com/photo-1577106263724-2c8e03bfe9cf?auto=format&fit=crop&w=1100&q=75" alt="접시를 담는 셰프"></div>
+</section>
+
+<section class="course" id="course" data-steps data-hover>
+  <div>
+    <p class="tag rv">November</p>
+    <h2 class="rv">Dinner<br><em>Course</em></h2>
+    <p class="sub rv">다섯 가지 순서로 나옵니다. 재료 사정에 따라 구성이 바뀔 수 있습니다.</p>
+    <div class="step"><i>i.</i><b>맞이 한입</b><span>들깨, 무, 유자</span></div>
+    <div class="step"><i>ii.</i><b>제철 생선</b><span>방어, 감태, 간장</span></div>
+    <div class="step"><i>iii.</i><b>구이</b><span>옥돔, 대파, 된장</span></div>
+    <div class="step"><i>iv.</i><b>한우와 솥밥</b><span>채끝, 더덕, 햅쌀</span></div>
+    <div class="step"><i>v.</i><b>맺음</b><span>배, 생강, 조청</span></div>
+    <div class="price rv"><div><span>LUNCH</span>90,000</div><div><span>DINNER</span>160,000</div></div>
+  </div>
+  <div class="pics">
+    <img loading="lazy" src="https://images.unsplash.com/photo-1692197275931-0793e08efcc1?auto=format&fit=crop&w=1200&q=75" alt="">
+    <img loading="lazy" src="https://images.unsplash.com/photo-1794480902624-3b4aa94e5944?auto=format&fit=crop&w=1200&q=75" alt="">
+    <img loading="lazy" src="https://images.unsplash.com/photo-1616669944447-d65d41a222bd?auto=format&fit=crop&w=1200&q=75" alt="">
+    <img loading="lazy" src="https://images.unsplash.com/photo-1512132411229-c30391241dd8?auto=format&fit=crop&w=1200&q=75" alt="">
+    <img loading="lazy" src="https://images.unsplash.com/photo-1768326119181-5f3cfe0adb4c?auto=format&fit=crop&w=1200&q=75" alt="">
   </div>
 </section>
 
-<section class="menu" id="menu">
-  <div class="tag rv">November</div>
-  <h2 class="rv">Dinner Course</h2>
-  <p class="sub rv">일곱 가지 순서로 나옵니다. 재료 사정에 따라 구성이 바뀔 수 있습니다.</p>
-  <ol>
-    <li class="rv"><span class="n">i</span><span class="t">맞이 한입</span><i class="l"></i><span class="d">들깨, 무, 유자</span></li>
-    <li class="rv"><span class="n">ii</span><span class="t">제철 회</span><i class="l"></i><span class="d">방어, 감태, 간장</span></li>
-    <li class="rv"><span class="n">iii</span><span class="t">찜</span><i class="l"></i><span class="d">전복, 표고, 은행</span></li>
-    <li class="rv"><span class="n">iv</span><span class="t">구이</span><i class="l"></i><span class="d">옥돔, 대파, 된장</span></li>
-    <li class="rv"><span class="n">v</span><span class="t">한우</span><i class="l"></i><span class="d">채끝, 더덕, 산초</span></li>
-    <li class="rv"><span class="n">vi</span><span class="t">솥밥</span><i class="l"></i><span class="d">햅쌀, 밤, 제철 찬</span></li>
-    <li class="rv"><span class="n">vii</span><span class="t">맺음</span><i class="l"></i><span class="d">배, 생강, 조청</span></li>
-  </ol>
-  <div class="price rv"><div><span>LUNCH</span>90,000</div><div><span>DINNER</span>160,000</div></div>
+<section class="gal hpin" id="gallery" data-p="pin">
+  <div class="stick">
+    <div class="head"><h2 class="rv">Plates</h2><span>SCROLL →</span></div>
+    <div class="track">
+      <figure><div><img loading="lazy" src="https://images.unsplash.com/photo-1692197275441-40c874f40385?auto=format&fit=crop&w=1000&q=75" alt=""></div><figcaption>가을 뿌리채소<i>01</i></figcaption></figure>
+      <figure><div><img loading="lazy" src="https://images.unsplash.com/photo-1768326119181-5f3cfe0adb4c?auto=format&fit=crop&w=800&q=75" alt=""></div><figcaption>흑임자<i>02</i></figcaption></figure>
+      <figure><div><img loading="lazy" src="https://images.unsplash.com/photo-1616669944447-d65d41a222bd?auto=format&fit=crop&w=1000&q=75" alt=""></div><figcaption>구운 버섯<i>03</i></figcaption></figure>
+      <figure><div><img loading="lazy" src="https://images.unsplash.com/photo-1794480902624-3b4aa94e5944?auto=format&fit=crop&w=800&q=75" alt=""></div><figcaption>제철 생선<i>04</i></figcaption></figure>
+      <figure><div><img loading="lazy" src="https://images.unsplash.com/photo-1692197275931-0793e08efcc1?auto=format&fit=crop&w=1000&q=75" alt=""></div><figcaption>맞이 한입<i>05</i></figcaption></figure>
+      <figure><div><img loading="lazy" src="https://images.unsplash.com/photo-1740594967618-23cd757b9291?auto=format&fit=crop&w=800&q=75" alt=""></div><figcaption>맺음<i>06</i></figcaption></figure>
+    </div>
+  </div>
 </section>
 
-<section class="visit" id="visit">
-  <div class="rv"><h3>Hours</h3><p><span class="big">12:00 · 18:30</span><br>화요일 – 일요일<br>월요일 휴무</p></div>
-  <div class="rv" style="--d:.1s"><h3>Location</h3><p>서울시 ○○구 ○○길 00, 2층<br>○○역 4번 출구 걸어서 5분<br>발레 주차 가능</p></div>
-  <div class="rv" style="--d:.2s"><h3>Reservation</h3><p><span class="big">02 · 000 · 0000</span><br>예약은 한 달 전부터 받습니다.</p><a class="btn" href="#visit">RESERVE</a></div>
+<section class="room" id="room" data-p>
+  <div class="bg"><img loading="lazy" src="https://images.unsplash.com/photo-1709548145082-04d0cde481d4?auto=format&fit=crop&w=2000&q=75" alt=""></div>
+  <div><p class="tag rv">The Room</p><h2 class="rv">열두 자리,<br>하루 두 번.</h2><p class="rv">주방이 보이는 카운터 여덟 자리와 네 분이 앉는 방 하나가 있습니다. 모든 자리는 예약으로만 받습니다.</p></div>
 </section>
-<footer><span>미월 MIWOL · 컨셉 작업용 가상 정보</span><span>Concept design</span></footer>
-<script>
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
-document.querySelectorAll('.rv').forEach(e=>io.observe(e));
-</script>
+
+<section class="rsv" id="rsv">
+  <div>
+    <p class="tag rv">Reservation</p>
+    <h2 class="rv">Visit us</h2>
+    <dl class="rv">
+      <dt>Hours</dt><dd>화 – 일 · 점심 12:00 / 저녁 18:30<br>월요일 휴무</dd>
+      <dt>Address</dt><dd>서울시 ○○구 ○○길 00, 2층<br>○○역 4번 출구 걸어서 5분</dd>
+      <dt>Parking</dt><dd>발레 주차 가능</dd>
+      <dt>Tel</dt><dd>02 · 000 · 0000</dd>
+    </dl>
+  </div>
+  <form class="rv" data-demo>
+    <label>DATE<input type="date" required></label>
+    <label>TIME<select><option>점심 12:00</option><option>저녁 18:30</option></select></label>
+    <label>GUESTS<select><option>2명</option><option>3명</option><option>4명</option><option>5명 이상 (전화 문의)</option></select></label>
+    <label>NAME<input type="text" autocomplete="name" required></label>
+    <label class="w">PHONE<input type="tel" autocomplete="tel" placeholder="010-0000-0000" required></label>
+    <label class="w">REQUEST<textarea placeholder="알레르기, 기념일 등"></textarea></label>
+    <button>REQUEST A TABLE</button>
+    <div class="ok"><div><b>Thank you</b>예약 요청 화면 예시입니다.<br>데모 페이지라 실제로 접수되지는 않습니다.</div></div>
+  </form>
+</section>
+</main>
+
+<footer>
+  <div><div class="logo">MIWOL</div>미월 · 대표자 ○○○ · 사업자등록번호 000-00-00000<br>서울시 ○○구 ○○길 00, 2층 · 02-000-0000</div>
+  <a href="#top">맨 위로 ↑</a>
+  <small>컨셉 작업용 가상 정보입니다. 사진 출처 Unsplash. 사진 속 인물과 음식, 장소는 이 페이지의 내용과 관계가 없습니다.</small>
+</footer>
+
+<div class="quick"><a class="k" href="#rsv">예약</a><a href="#top" aria-label="맨 위로">↑</a></div>
+<div class="mbar"><a href="tel:020000000">전화</a><a href="#course">코스</a><a href="#rsv">예약하기</a></div>
+<script src="fx.js"></script>
 </body>
 </html>
