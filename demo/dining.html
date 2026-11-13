@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>미월 MIWOL — 컨셉 작업</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+KR:wght@300;400&display=swap">
+<style>
+:root{--bg:#0c0b0a;--ink:#e9e2d3;--mute:#8d8576;--line:#2b2823;--gold:#b8975a;--pad:clamp(20px,5vw,72px);--e:cubic-bezier(.2,.7,.1,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:"Pretendard Variable",-apple-system,"Apple SD Gothic Neo",sans-serif;font-weight:300;font-size:16px;line-height:1.8;word-break:keep-all;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}ul,ol{list-style:none}
+.en{font-family:"Cormorant Garamond",serif}
+.kr{font-family:"Noto Serif KR",serif;font-weight:300}
+.demo{background:#1a1815;color:var(--mute);font-size:12.5px;display:flex;justify-content:space-between;padding:8px var(--pad)}
+.demo a{color:var(--ink)}
+nav{position:absolute;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:28px var(--pad);font-size:13px;letter-spacing:.18em;z-index:2}
+nav ul{display:flex;gap:40px}
+nav a:hover{color:var(--gold)}
+@media(max-width:760px){nav ul li:not(:last-child){display:none}}
+.rv{opacity:0;transform:translateY(26px);transition:opacity 1.3s var(--e),transform 1.3s var(--e);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+
+.hero{min-height:100svh;display:grid;place-items:center;text-align:center;position:relative;overflow:hidden;padding:120px var(--pad) 80px}
+.plate{position:absolute;width:min(92vmin,820px);aspect-ratio:1;animation:spin 120s linear infinite}
+.plate circle{fill:none;stroke:var(--gold);stroke-width:.25;opacity:.55}
+.plate .dash{stroke-dasharray:.6 2.4;opacity:.8}
+.plate .dot{fill:var(--gold);stroke:none;opacity:1}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero .in1{position:relative}
+.hero small{display:block;font-size:12.5px;letter-spacing:.42em;color:var(--gold);margin-bottom:26px}
+.hero h1{font-family:"Cormorant Garamond",serif;font-weight:300;font-style:italic;font-size:clamp(84px,19vw,300px);line-height:.9;letter-spacing:-.03em}
+.hero p{font-family:"Noto Serif KR",serif;font-size:clamp(16px,1.7vw,22px);margin-top:30px;letter-spacing:.06em}
+.scroll{position:absolute;bottom:30px;left:50%;width:1px;height:56px;background:linear-gradient(var(--gold),transparent);animation:drop 2.4s var(--e) infinite;transform-origin:top}
+@keyframes drop{0%{transform:scaleY(0)}60%{transform:scaleY(1);opacity:1}100%{opacity:0}}
+
+section{padding:clamp(80px,12vw,180px) var(--pad)}
+.about{display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(32px,7vw,120px);border-top:1px solid var(--line)}
+.tag{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:22px;color:var(--gold)}
+.about h2{font-family:"Noto Serif KR",serif;font-weight:300;font-size:clamp(26px,3.6vw,52px);line-height:1.55;letter-spacing:-.03em}
+.about p{color:#aaa293;max-width:34em;margin-top:32px}
+@media(max-width:760px){.about{grid-template-columns:1fr}}
+
+.menu{max-width:980px;margin:0 auto;text-align:center}
+.menu h2{font-family:"Cormorant Garamond",serif;font-weight:300;font-size:clamp(44px,7vw,104px);line-height:1;margin:10px 0 14px}
+.menu .sub{color:var(--mute);font-size:14.5px;margin-bottom:clamp(40px,6vw,80px)}
+.menu li{display:flex;align-items:baseline;gap:18px;padding:22px 0;border-bottom:1px solid var(--line);text-align:left;transition:color .4s}
+.menu li:hover{color:var(--gold)}
+.menu .n{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--gold);width:2.4em;flex:none}
+.menu .t{font-family:"Noto Serif KR",serif;font-size:clamp(18px,2vw,25px)}
+.menu .l{flex:1;border-bottom:1px dotted #4a453d;transform:translateY(-5px)}
+.menu .d{color:var(--mute);font-size:14.5px;text-align:right}
+@media(max-width:640px){.menu .l{display:none}.menu li{flex-wrap:wrap}.menu .d{width:100%;text-align:left;padding-left:calc(2.4em + 18px)}}
+.price{display:flex;justify-content:center;gap:clamp(32px,7vw,96px);margin-top:56px;font-family:"Cormorant Garamond",serif;font-size:clamp(26px,3vw,40px)}
+.price span{display:block;font-family:"Pretendard Variable",sans-serif;font-size:13px;letter-spacing:.2em;color:var(--mute)}
+
+.visit{border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,64px)}
+.visit h3{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:400;font-size:22px;color:var(--gold);margin-bottom:18px}
+.visit p{color:#aaa293;font-size:15px}
+.visit .big{font-family:"Cormorant Garamond",serif;font-size:clamp(30px,3.4vw,46px);color:var(--ink);line-height:1.2;margin-bottom:10px}
+.btn{display:inline-block;margin-top:22px;padding:13px 30px;border:1px solid var(--gold);color:var(--gold);font-size:13px;letter-spacing:.2em;transition:.4s}
+.btn:hover{background:var(--gold);color:var(--bg)}
+@media(max-width:760px){.visit{grid-template-columns:1fr}}
+footer{padding:28px var(--pad);border-top:1px solid var(--line);font-size:12.5px;color:var(--mute);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="demo"><span>컨셉 작업 · 실제 매장이 아닌 가상의 브랜드입니다</span><a href="../#works">← 돌아가기</a></div>
+<nav>
+  <a href="#" class="en" style="font-size:20px;letter-spacing:.3em">MIWOL</a>
+  <ul><li><a href="#about">STORY</a></li><li><a href="#menu">COURSE</a></li><li><a href="#visit">RESERVATION</a></li></ul>
+</nav>
+
+<section class="hero">
+  <svg class="plate" viewBox="0 0 100 100" aria-hidden="true">
+    <circle cx="50" cy="50" r="49"/><circle cx="50" cy="50" r="44" class="dash"/><circle cx="50" cy="50" r="33"/><circle cx="50" cy="50" r="32.2"/>
+    <circle cx="50" cy="1" r=".7" class="dot"/><circle cx="83" cy="50" r=".5" class="dot"/>
+  </svg>
+  <div class="in1">
+    <small class="rv">KOREAN SEASONAL DINING</small>
+    <h1 class="rv" style="--d:.15s">Miwol</h1>
+    <p class="rv" style="--d:.35s">계절을 한 접시에 담습니다</p>
+  </div>
+  <i class="scroll"></i>
+</section>
+
+<section class="about" id="about">
+  <div class="tag rv">The Story</div>
+  <div>
+    <h2 class="rv">그날 들어온 재료로<br>그날의 상을 차립니다.</h2>
+    <p class="rv" style="--d:.12s">미월은 하루 두 번, 열두 자리만 준비합니다. 메뉴는 달마다 바뀌고, 그날 재료에 따라 접시 하나가 달라지기도 합니다. 천천히 드시고 가시도록 식사 시간은 넉넉하게 잡아 둡니다.</p>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="tag rv">November</div>
+  <h2 class="rv">Dinner Course</h2>
+  <p class="sub rv">일곱 가지 순서로 나옵니다. 재료 사정에 따라 구성이 바뀔 수 있습니다.</p>
+  <ol>
+    <li class="rv"><span class="n">i</span><span class="t">맞이 한입</span><i class="l"></i><span class="d">들깨, 무, 유자</span></li>
+    <li class="rv"><span class="n">ii</span><span class="t">제철 회</span><i class="l"></i><span class="d">방어, 감태, 간장</span></li>
+    <li class="rv"><span class="n">iii</span><span class="t">찜</span><i class="l"></i><span class="d">전복, 표고, 은행</span></li>
+    <li class="rv"><span class="n">iv</span><span class="t">구이</span><i class="l"></i><span class="d">옥돔, 대파, 된장</span></li>
+    <li class="rv"><span class="n">v</span><span class="t">한우</span><i class="l"></i><span class="d">채끝, 더덕, 산초</span></li>
+    <li class="rv"><span class="n">vi</span><span class="t">솥밥</span><i class="l"></i><span class="d">햅쌀, 밤, 제철 찬</span></li>
+    <li class="rv"><span class="n">vii</span><span class="t">맺음</span><i class="l"></i><span class="d">배, 생강, 조청</span></li>
+  </ol>
+  <div class="price rv"><div><span>LUNCH</span>90,000</div><div><span>DINNER</span>160,000</div></div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="rv"><h3>Hours</h3><p><span class="big">12:00 · 18:30</span><br>화요일 – 일요일<br>월요일 휴무</p></div>
+  <div class="rv" style="--d:.1s"><h3>Location</h3><p>서울시 ○○구 ○○길 00, 2층<br>○○역 4번 출구 걸어서 5분<br>발레 주차 가능</p></div>
+  <div class="rv" style="--d:.2s"><h3>Reservation</h3><p><span class="big">02 · 000 · 0000</span><br>예약은 한 달 전부터 받습니다.</p><a class="btn" href="#visit">RESERVE</a></div>
+</section>
+<footer><span>미월 MIWOL · 컨셉 작업용 가상 정보</span><span>Concept design</span></footer>
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+</script>
+</body>
+</html>

@@ -62,6 +62,18 @@ h2{font-size:clamp(34px,6.2vw,96px);font-weight:800;line-height:1.08;letter-spac
 .mq span:nth-child(even){color:var(--accent)}
 @keyframes mq{to{transform:translateX(-50%)}}
 
+/* works: 데모 페이지를 4배 크기로 띄워 1/4로 줄인 실시간 미리보기 */
+#works{padding-bottom:0}
+.works{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,28px)}
+.shot{aspect-ratio:4/3;overflow:hidden;border:1px solid var(--line);background:#f4f4f2;transition:border-color .3s,transform .5s var(--ease)}
+.works a:hover .shot{border-color:var(--ink);transform:translateY(-8px)}
+.shot iframe{width:400%;height:400%;border:0;transform:scale(.25);transform-origin:0 0;pointer-events:none}
+.cap{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-top:16px}
+.cap b{font-size:clamp(19px,1.8vw,26px);letter-spacing:-.03em}
+.cap span{font-size:14px;color:var(--mute)}
+.works a:hover b{color:var(--accent)}
+@media(max-width:900px){.works{grid-template-columns:1fr;gap:36px}}
+
 /* work list */
 .list li{display:grid;grid-template-columns:5ch 1fr 1.1fr;gap:24px;align-items:baseline;padding:clamp(22px,3vw,40px) 0;border-top:1px solid var(--line);position:relative;transition:padding .45s var(--ease),color .3s}
 .list li:last-child{border-bottom:1px solid var(--line)}
@@ -150,6 +162,7 @@ footer{display:flex;justify-content:space-between;gap:16px;margin-top:clamp(80px
 <header>
   <a href="#top" class="brand" data-brand></a>
   <nav>
+    <a href="#works">작업물</a>
     <a href="#work">제작 분야</a>
     <a href="#process">진행 과정</a>
     <a href="#price">가격</a>
@@ -171,6 +184,17 @@ footer{display:flex;justify-content:space-between;gap:16px;margin-top:clamp(80px
 </section>
 
 <div class="mq" aria-hidden="true"><div id="mq"></div></div>
+
+<section id="works">
+  <div class="label rv">작업물</div>
+  <h2 class="rv">직접 눌러서<br>확인하세요<span class="dot">.</span></h2>
+  <div class="works">
+    <a class="rv" href="demo/clinic.html"><div class="shot"><iframe src="demo/clinic.html" loading="lazy" tabindex="-1" aria-hidden="true" title=""></iframe></div><div class="cap"><b>결 피부과의원</b><span>병원 · 의원</span></div></a>
+    <a class="rv" style="--d:.08s" href="demo/dining.html"><div class="shot"><iframe src="demo/dining.html" loading="lazy" tabindex="-1" aria-hidden="true" title=""></iframe></div><div class="cap"><b>미월 다이닝</b><span>음식점</span></div></a>
+    <a class="rv" style="--d:.16s" href="demo/interior.html"><div class="shot"><iframe src="demo/interior.html" loading="lazy" tabindex="-1" aria-hidden="true" title=""></iframe></div><div class="cap"><b>선과면 인테리어</b><span>인테리어 · 시공</span></div></a>
+  </div>
+  <p class="note">세 곳 모두 실제 업체가 아닌 가상의 브랜드로 만든 컨셉 작업입니다.</p>
+</section>
 
 <section id="work">
   <div class="label rv">제작 분야</div>

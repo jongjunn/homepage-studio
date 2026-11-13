@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>선과면 인테리어 — 컨셉 작업</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{--bg:#e8e7e3;--ink:#111;--mute:#77756f;--line:#c9c7c0;--pad:clamp(20px,4vw,56px);--e:cubic-bezier(.2,.7,.1,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:"Pretendard Variable",-apple-system,"Apple SD Gothic Neo",sans-serif;font-size:16px;line-height:1.65;word-break:keep-all;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}ul,ol{list-style:none}
+.demo{background:var(--ink);color:#aaa;font-size:12.5px;display:flex;justify-content:space-between;padding:8px var(--pad)}
+.demo a{color:#fff}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px var(--pad);font-size:13px;font-weight:600;letter-spacing:.08em;border-bottom:1px solid var(--ink)}
+nav ul{display:flex;gap:32px}
+nav a:hover{opacity:.5}
+@media(max-width:760px){nav ul li:not(:last-child){display:none}}
+.rv{opacity:0;transform:translateY(30px);transition:opacity 1s var(--e),transform 1s var(--e);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+svg{display:block;width:100%;height:auto;fill:none;stroke:var(--ink);stroke-width:1;vector-effect:non-scaling-stroke}
+svg *{vector-effect:non-scaling-stroke}
+
+.hero{padding:clamp(28px,4vw,56px) var(--pad) 0}
+.hero h1{font-size:clamp(52px,13.6vw,236px);font-weight:900;line-height:.9;letter-spacing:-.055em;margin-left:-.04em}
+.hero h1 span{display:block}
+.hero h1 .o{color:#b4b2aa}
+.hero .meta{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:clamp(24px,3vw,44px);padding:18px 0;border-top:1px solid var(--ink);font-size:13.5px}
+.hero .meta b{display:block;font-size:11.5px;letter-spacing:.14em;color:var(--mute);font-weight:600;margin-bottom:4px}
+@media(max-width:760px){.hero .meta{grid-template-columns:1fr 1fr}}
+.draw{border-block:1px solid var(--ink);padding:clamp(24px,4vw,56px) var(--pad);overflow:hidden}
+.draw path,.draw line,.draw rect{stroke-dasharray:1;stroke-dashoffset:1;animation:ln 2.6s var(--e) forwards;animation-delay:calc(var(--i,0)*.14s + .3s)}
+@keyframes ln{to{stroke-dashoffset:0}}
+
+section{padding:clamp(72px,10vw,150px) var(--pad)}
+.h{display:grid;grid-template-columns:1fr 2fr;gap:24px;margin-bottom:clamp(32px,5vw,72px);align-items:end}
+.h small{font-size:12px;font-weight:600;letter-spacing:.14em;color:var(--mute)}
+.h h2{font-size:clamp(30px,5vw,76px);font-weight:800;letter-spacing:-.045em;line-height:1.1}
+@media(max-width:760px){.h{grid-template-columns:1fr}}
+
+.pj{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--ink);border:1px solid var(--ink)}
+.pj a{background:var(--bg);padding:clamp(18px,2.4vw,32px);display:flex;flex-direction:column;gap:20px;transition:background .45s,color .45s}
+.pj a:hover{background:var(--ink);color:#fff}
+.pj a:hover svg{stroke:#fff}
+.pj svg{aspect-ratio:16/10;transition:transform .7s var(--e)}
+.pj a:hover svg{transform:scale(1.03)}
+.pj .c{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.pj .c b{font-size:clamp(19px,2vw,28px);font-weight:700;letter-spacing:-.03em}
+.pj .c span{font-size:13px;color:var(--mute);font-variant-numeric:tabular-nums}
+@media(max-width:700px){.pj{grid-template-columns:1fr}}
+
+.how{background:var(--ink);color:#fff}
+.how .h small{color:#888}
+.how ol{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #444}
+.how li{padding:28px 24px 8px 0;border-right:1px solid #444}
+.how li+li{padding-left:24px}
+.how li:last-child{border:0}
+.how i{font-style:normal;font-size:12px;letter-spacing:.14em;color:#888}
+.how b{display:block;font-size:clamp(22px,2.4vw,34px);letter-spacing:-.035em;margin:44px 0 10px}
+.how p{color:#aaa;font-size:15px}
+@media(max-width:860px){.how ol{grid-template-columns:1fr 1fr}.how li{border-right:0;border-bottom:1px solid #444;padding:24px 0!important}}
+
+.cta{text-align:center}
+.cta a{display:inline-block;font-size:clamp(44px,10vw,170px);font-weight:900;letter-spacing:-.055em;line-height:1;border-bottom:.06em solid var(--ink);transition:letter-spacing .6s var(--e)}
+.cta a:hover{letter-spacing:-.02em}
+.cta p{margin-top:28px;color:var(--mute)}
+footer{padding:24px var(--pad);border-top:1px solid var(--ink);font-size:12.5px;color:var(--mute);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.rv{opacity:1;transform:none}.draw *{stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+<div class="demo"><span>컨셉 작업 · 실제 업체가 아닌 가상의 브랜드입니다</span><a href="../#works">← 돌아가기</a></div>
+<nav>
+  <a href="#">선과면 — SEON &amp; MYEON</a>
+  <ul><li><a href="#pj">PROJECT</a></li><li><a href="#how">PROCESS</a></li><li><a href="#cta">견적 문의</a></li></ul>
+</nav>
+
+<header class="hero">
+  <h1><span class="rv">SPACE,</span><span class="rv o" style="--d:.1s">DRAWN</span><span class="rv" style="--d:.2s">RIGHT.</span></h1>
+  <div class="meta rv" style="--d:.3s">
+    <div><b>WHAT</b>주거 · 상업 공간 설계와 시공</div>
+    <div><b>WHERE</b>서울 · 경기</div>
+    <div><b>HOW</b>설계한 사람이 현장까지</div>
+    <div><b>SINCE</b>2016</div>
+  </div>
+</header>
+
+<div class="draw" aria-hidden="true">
+  <svg viewBox="0 0 1200 300">
+    <line pathLength="1" style="--i:0" x1="0" y1="280" x2="1200" y2="280"/>
+    <rect pathLength="1" style="--i:1" x="60" y="60" width="330" height="220"/>
+    <rect pathLength="1" style="--i:2" x="100" y="110" width="110" height="170"/>
+    <rect pathLength="1" style="--i:3" x="250" y="110" width="100" height="90"/>
+    <path pathLength="1" style="--i:4" d="M390 120H700V280M390 120V280"/>
+    <path pathLength="1" style="--i:5" d="M440 280V170H650V280M545 170V280"/>
+    <path pathLength="1" style="--i:6" d="M700 30H1140V280M700 30V120"/>
+    <path pathLength="1" style="--i:7" d="M760 280V90H1080V280M760 185H1080M920 90V280"/>
+    <path pathLength="1" style="--i:8" d="M30 60H420M30 50V70M420 50V70M1170 30V280M1160 30H1180M1160 280H1180"/>
+  </svg>
+</div>
+
+<section id="pj">
+  <div class="h"><small class="rv">PROJECT — 04</small><h2 class="rv">도면에서 시작해<br>생활로 끝납니다.</h2></div>
+  <div class="pj">
+    <a href="#pj" class="rv"><svg viewBox="0 0 320 200"><rect x="10" y="10" width="300" height="180"/><path d="M10 110H150V190M150 60V110M150 60H310M220 60V10M220 130H310M220 130V190"/><path d="M150 150a40 40 0 0 1 40 40" stroke-dasharray="3 3"/></svg><div class="c"><b>서초 34평 아파트</b><span>주거 · 112㎡</span></div></a>
+    <a href="#pj" class="rv" style="--d:.08s"><svg viewBox="0 0 320 200"><rect x="10" y="10" width="300" height="180"/><path d="M10 70H210V190M210 70V10M60 70V10M110 70V10M160 70V10"/><circle cx="260" cy="60" r="22"/><circle cx="260" cy="140" r="22"/></svg><div class="c"><b>성수 카페</b><span>상업 · 86㎡</span></div></a>
+    <a href="#pj" class="rv"><svg viewBox="0 0 320 200"><rect x="10" y="10" width="300" height="180"/><path d="M110 10V190M210 10V190M10 100H110M210 100H310M110 60H210M110 140H210"/></svg><div class="c"><b>판교 사무실</b><span>업무 · 198㎡</span></div></a>
+    <a href="#pj" class="rv" style="--d:.08s"><svg viewBox="0 0 320 200"><path d="M10 190V70L160 10L310 70V190Z"/><path d="M10 70H310M110 190V120H210V190M60 100H100M220 100H260"/></svg><div class="c"><b>양평 단독주택</b><span>주거 · 165㎡</span></div></a>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="h"><small class="rv">PROCESS</small><h2 class="rv">견적서에 없는 비용은<br>청구하지 않습니다.</h2></div>
+  <ol>
+    <li class="rv"><i>01</i><b>실측 상담</b><p>현장을 직접 재고 생활 방식을 듣습니다.</p></li>
+    <li class="rv" style="--d:.08s"><i>02</i><b>설계 · 견적</b><p>도면과 항목별 견적서를 함께 드립니다.</p></li>
+    <li class="rv" style="--d:.16s"><i>03</i><b>시공</b><p>공정마다 사진으로 진행 상황을 알립니다.</p></li>
+    <li class="rv" style="--d:.24s"><i>04</i><b>입주 후 점검</b><p>입주 뒤 다시 방문해 손볼 곳을 확인합니다.</p></li>
+  </ol>
+</section>
+
+<section class="cta" id="cta">
+  <a class="rv" href="#cta">견적 문의 ↗</a>
+  <p class="rv" style="--d:.1s">02 · 000 · 0000 &nbsp;/&nbsp; 서울시 ○○구 ○○로 00</p>
+</section>
+<footer><span>선과면 인테리어 · 컨셉 작업용 가상 정보</span><span>Concept design</span></footer>
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+</script>
+</body>
+</html>
